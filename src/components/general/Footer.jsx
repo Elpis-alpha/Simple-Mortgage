@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa"
+import {  FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa"
 import styled from "styled-components"
-import { email, facebook, instagram, linkedin, siteName, telephone, tiktok, twitter, youtube } from "../../utils"
+import { address, email, linkedin, siteName, telephone, twitter } from "../../utils"
 
 const Footer = () => {
 	return (
@@ -10,11 +10,7 @@ const Footer = () => {
 				<div className="row ic">
 					<a target="_blank" rel="noopener noreferrer" href={`tel:${telephone}`}><FaPhone /></a>
 					<a target="_blank" rel="noopener noreferrer" href={`mailto:${email}`}><FaEnvelope /></a>
-					<a target="_blank" rel="noopener noreferrer" href={facebook}><FaFacebook /></a>
-					<a target="_blank" rel="noopener noreferrer" href={instagram}><FaInstagram /></a>
-					<a target="_blank" rel="noopener noreferrer" href={youtube}><FaYoutube /></a>
 					<a target="_blank" rel="noopener noreferrer" href={twitter}><FaTwitter /></a>
-					<a target="_blank" rel="noopener noreferrer" href={tiktok}><FaTiktok /></a>
 					<a target="_blank" rel="noopener noreferrer" href={linkedin}><FaLinkedin /></a>
 				</div>
 
@@ -27,6 +23,8 @@ const Footer = () => {
 						<li><Link to="/privacy-policy">Privacy Policy</Link></li>
 					</ul>
 				</div>
+
+				<div className="row">{address}</div>
 
 				<div className="row">
 					{siteName} Copyright © {new Date().getFullYear()} Mortgage Platform - All rights reserved

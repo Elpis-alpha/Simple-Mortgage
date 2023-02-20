@@ -1,4 +1,4 @@
-import { FaCalculator, FaInfo, FaAddressBook } from "react-icons/fa"
+import { FaCalculator, FaInfo, FaAddressBook, FaHome } from "react-icons/fa"
 import { Sling as Hamburger } from "hamburger-react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
@@ -33,6 +33,10 @@ const NavBar = () => {
 				</div>
 
 				<ul>
+					<li className="only-mobile" onClick={() => setIsNavOpened(false)}><Link to={`/`}>
+						Home <FaHome />
+					</Link></li>
+
 					<li onClick={() => setIsNavOpened(false)}><Link to={`/calculator`}>
 						Mortgage Calculator <FaCalculator />
 					</Link></li>
@@ -108,6 +112,9 @@ width: 100%;
 			line-height: .9pc;
 			color: black;
 			cursor: pointer;
+			&.only-mobile {
+				display: none;
+			}
 			&.like-a{
 				color: black;
 				text-decoration: none;
@@ -176,6 +183,9 @@ width: 100%;
 				padding: 0;
 				font-size: 1.1pc;
 				line-height: 1.1pc;
+				&.only-mobile {
+					display: flex;
+				}
 				a{
 					padding: 1.5pc 2pc;
 					width: 100%;

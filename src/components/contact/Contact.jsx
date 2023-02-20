@@ -1,6 +1,5 @@
 import styled from "styled-components"
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaLinkedin } from "react-icons/fa"
-import { address, email, telephone, facebook, instagram, linkedin, tiktok, twitter, youtube } from "../../utils"
+import { address, email, telephone, adminEmail, contactEmail, otherEmail } from "../../utils"
 import { ContactBlocks, MiddleImageStyle } from "../general/SectionStyles"
 
 const Contact = () => {
@@ -41,6 +40,30 @@ const Contact = () => {
 								<div className="button"><a title="place a call" href={`mailto:${email}`}>Mail us</a></div>
 							</div>
 							<div className="list-item">
+								<div className="tit">Contact our Admin</div>
+								<div className="nom">Contact our administrative team by sending a mail to {adminEmail} and we'll get back to you within 48 hours.</div>
+								<div className="imp">
+									Always available
+								</div>
+								<div className="button"><a title="place a call" href={`mailto:${adminEmail}`}>Mail us</a></div>
+							</div>
+							<div className="list-item">
+								<div className="tit">Contact us</div>
+								<div className="nom">Contact us by sending a mail to {otherEmail} and we'll get back to you within 48 hours.</div>
+								<div className="imp">
+									Always available
+								</div>
+								<div className="button"><a title="place a call" href={`mailto:${otherEmail}`}>Mail us</a></div>
+							</div>
+							<div className="list-item">
+								<div className="tit">Get Support</div>
+								<div className="nom">Contact our support team by sending a mail to {contactEmail} and we'll get back to you within 48 hours.</div>
+								<div className="imp">
+									Always available
+								</div>
+								<div className="button"><a title="place a call" href={`mailto:${contactEmail}`}>Mail us</a></div>
+							</div>
+							<div className="list-item">
 								<div className="tit">Come to our office</div>
 								<div className="nom">You can pay us a visit in our office at</div>
 								<div className="imp">
@@ -49,18 +72,6 @@ const Contact = () => {
 								<div className="imp">
 									Monday to Friday: 9am - 2pm <br />
 									Saturday and Sunday: Closed
-								</div>
-							</div>
-							<div className="list-item">
-								<div className="tit">Social Media</div>
-								<div className="nom">You can contact us through any of these social media</div>
-								<div className="soc">
-									<a target="_blank" rel="noopener noreferrer" href={facebook}><FaFacebook /></a>
-									<a target="_blank" rel="noopener noreferrer" href={instagram}><FaInstagram /></a>
-									<a target="_blank" rel="noopener noreferrer" href={youtube}><FaYoutube /></a>
-									<a target="_blank" rel="noopener noreferrer" href={twitter}><FaTwitter /></a>
-									<a target="_blank" rel="noopener noreferrer" href={tiktok}><FaTiktok /></a>
-									<a target="_blank" rel="noopener noreferrer" href={linkedin}><FaLinkedin /></a>
 								</div>
 							</div>
 						</div>
