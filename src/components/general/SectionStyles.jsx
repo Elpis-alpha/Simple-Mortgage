@@ -20,12 +20,13 @@ export const MiddleImageStyle = styled.section`
 
 			.title {
 				font-size: 1.8pc;
-				line-height: 2.5pc;
+				line-height: 2.6pc;
 				font-weight: bold;
 				padding-bottom: .7pc;
-
+				
 				&.bigger-c {
 					font-size: 2.5pc;
+					line-height: 4pc;
 				}
 			}
 

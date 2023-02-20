@@ -5,7 +5,9 @@ import Footer from './components/general/Footer';
 import PageNotFound from './components/general/PageNotFound';
 import Contact from './components/contact/Contact';
 import About from './components/about/About';
-import MortgageDeals from './components/mortgage-deals/MortgageDeals';
+import MortgageCalculator from './components/mortgage-calculator/MortgageCalculator';
+import Forms from './components/forms/Forms';
+import PersonalBridgingLoanApplication from './components/forms/PersonalBridgingLoanApplication';
 
 const App = () => {
   const location = useLocation()
@@ -16,7 +18,9 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />
-        <Route path='/calculator' element={<MortgageDeals />} />
+        <Route path='/calculator' element={<MortgageCalculator />} />
+        <Route path='/forms' element={<Forms />} />
+        <Route path='/forms/personal-bridging-loan-application' element={<PersonalBridgingLoanApplication />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
       <Footer />
