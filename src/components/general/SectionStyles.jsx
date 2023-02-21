@@ -13,6 +13,10 @@ export const MiddleImageStyle = styled.section`
 			z-index: 20;
 			padding: 6pc 3pc;
 			color: #fff;
+			
+			@media screen and (max-width: 600px) {
+				padding: 4pc 2pc;
+			}
 
 			&.center {
 				text-align: center;
@@ -51,14 +55,13 @@ export const MiddleImageStyle = styled.section`
 				}
 			}
 
-			
 			.duo {
 				width: 70%;
 				padding-right: 2pc;
 
-				@media screen and (max-width: 1000%) {
+				@media screen and (max-width: 1000px) {
 					width: 100%;
-				}
+				}			
 
 				.title {
 					font-size: 64px;
@@ -71,6 +74,29 @@ export const MiddleImageStyle = styled.section`
 					line-height: 32px;
 					padding-top: 1.5pc;
 					padding-bottom: 1pc;
+				}
+				
+				@media screen and (max-width: 760px) {
+					
+					.title {
+						font-size: 48px;
+						line-height: 56px;
+					}
+				}
+				
+				@media screen and (max-width: 600px) {
+					
+					.title {
+						font-size: 32px;
+						line-height: 46px;
+					}
+
+					.content {
+						font-size: 16px;
+						line-height: 25px;
+						padding-top: 1pc;
+						padding-bottom: .5pc;
+					}
 				}
 			}
 		}
