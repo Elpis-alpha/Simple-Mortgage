@@ -14,12 +14,14 @@ const HomePage = () => {
         <div className="inner">
           <div className="img-part">
             <img src="/images/home.jpg" alt="Mortgage" />
-            <div className="img-ovf"></div>
+            {/* <div className="img-ovf"></div> */}
           </div>
-          <div className="inner-content center">
-            <div className="title">We give quality advice on your mortgage</div>
-            <div className="content">We don't think that's right. Over 50,000 people have benefited from our expert advice.</div>
-            <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
+          <div className="inner-content">
+            <div className="duo">
+              <div className="title">On your mortgage, we seamlessly provide excellent assistance.</div>
+              <div className="content">We don't think that's right. Over 50,000 people have benefited from our expert advice.</div>
+              <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
+            </div>
           </div>
         </div>
       </MiddleImageStyle>
@@ -79,7 +81,7 @@ const HomePage = () => {
                   <div className="tit">Home improvements</div>
                   <div className="con">Improving your home with renovations or extensions can be made easier by releasing money through a remortgage.</div>
                 </div>
-              </div>
+              </div> <span className="over"></span>
               <div className="list-item">
                 <div className="l-side"><RiCupLine /></div>
                 <div className="r-side">
@@ -125,7 +127,7 @@ const HomePage = () => {
             <div className="side text">
               <div className="title">Our Brand</div>
               <div className="content">
-                Our varieties of mortgage and banking products are the driving force to 
+                Our varieties of mortgage and banking products are the driving force to
                 offering the best products for your new home, second home, or investment property.
               </div>
               <div className="button"><Link to="/about" className='btn-8'>Get Started</Link></div>

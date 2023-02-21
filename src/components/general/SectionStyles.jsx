@@ -35,10 +35,10 @@ export const MiddleImageStyle = styled.section`
 
 				a {
 					text-decoration: none;
-					color: #072447;
+					color: #4c7bff;
 					font-weight: bold;
-					background-color: #26d8ba;
-					border: 4px solid #26d8ba;
+					background-color: #fff;
+					border: 4px solid #fff;
 					padding: .4pc 2pc;
 					border-radius: .2pc;
 					transition: background-color .5s, color .5s;
@@ -48,6 +48,29 @@ export const MiddleImageStyle = styled.section`
 						background-color: transparent;
 						color: #fff;
 					}
+				}
+			}
+
+			
+			.duo {
+				width: 70%;
+				padding-right: 2pc;
+
+				@media screen and (max-width: 1000%) {
+					width: 100%;
+				}
+
+				.title {
+					font-size: 64px;
+					line-height: 72px;
+					font-weight: 700;
+				}
+
+				.content {
+					font-size: 22px;
+					line-height: 32px;
+					padding-top: 1.5pc;
+					padding-bottom: 1pc;
 				}
 			}
 		}
@@ -124,7 +147,7 @@ export const SideImageStyle = styled.section`
 					display: inline-flex;
 					text-decoration: none;
 					color: #fff;
-					background-color: #194479;
+					background-color: #487cff;
 					padding: .6pc 2pc;
 					border-radius: .5pc;
 					transition: background-color .5s;
@@ -175,16 +198,27 @@ export const WhyUSStyle = styled.section`
 			.listed-parts {
 				display: flex;
 				flex-wrap: wrap;
+				justify-content: space-around;
+				max-width: 1000px;
+				margin: auto;
+
+				span.over {
+					display: block;
+					width: 100%;
+					height: .01pc;
+				}
 
 				.list-item {
 					text-align: left;
 					display: flex;
 					align-items: flex-start;
 					width: 50%;
+					max-width: 450px;
 					padding: 1pc 2pc;
 
 					@media screen and (max-width: 1000px) {
 						width: 100%;
+						max-width: initial;
 					}
 					
 					.l-side {
@@ -353,7 +387,7 @@ export const ContactBlocks = styled.section`
 							display: inline-flex;
 							text-decoration: none;
 							color: #fff;
-							background-color: #194479;
+							background-color: #487cff;
 							padding: .6pc 2pc;
 							border-radius: .5pc;
 							transition: background-color .5s;

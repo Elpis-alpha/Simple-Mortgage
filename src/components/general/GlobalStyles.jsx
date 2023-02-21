@@ -173,7 +173,7 @@ body > #root{
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  max-width: 1800px;
+  max-width: 1700px;
   margin: auto;
 }
 
@@ -237,7 +237,7 @@ button{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #072447;
+  background: #487cff;
 }
 
 /* Handle on hover */

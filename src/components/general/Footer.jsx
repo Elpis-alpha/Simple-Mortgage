@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom"
-import {  FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa"
+import { FaTwitter, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa"
 import styled from "styled-components"
-import { address, email, linkedin, siteName, telephone, twitter } from "../../utils"
+import Marquee from "react-fast-marquee";
+import { address, email, footerMarque, linkedin, siteName, telephone, twitter } from "../../utils"
+import { v4 } from "uuid";
 
 const Footer = () => {
 	return (
 		<FooterStyles>
+			<Marquee>
+				{footerMarque.map(item => <a href={item.href} key={v4()} target="_blank" rel="noopener noreferrer" className="marq-item"><img src={item.src} alt="Marque" /></a>)}
+			</Marquee>
+
 			<div className="footer">
 				<div className="row ic">
 					<a target="_blank" rel="noopener noreferrer" href={`tel:${telephone}`}><FaPhone /></a>
@@ -35,8 +41,16 @@ const Footer = () => {
 }
 const FooterStyles = styled.footer`
 width: 100%;
+
+.marq-item {
+	padding: 0 1pc;
+	img {
+		/* max-height: 20px; */
+		width: 120px;
+	}
+}
 .footer {
-	background: #072447;
+	background: #487cff;
 	padding: 30px 0px;
 	text-align: center;
 

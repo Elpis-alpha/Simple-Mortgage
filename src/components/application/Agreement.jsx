@@ -2,14 +2,13 @@ import { useState } from "react"
 import { FaTimes } from "react-icons/fa"
 import styled from "styled-components"
 import { MiddleImageStyle } from "../general/SectionStyles"
-import { bridging365Companies, bridging365Development, personalBridging } from "./form64"
-import { gBridging365Companies, gBridging365Development, gPersonalBridging } from "./formGoogle"
+import agreementForms from "./agreementForms"
 
-const Forms = () => {
-	const [activeForm, setActiveForm] = useState({ title: "", url: "", google: "" })
+const Agreement = () => {
+	const [activeForm, setActiveForm] = useState({ title: "", google: "" })
 
 	return (
-		<FormsStyles>
+		<AgreementStyles>
 
 			<MiddleImageStyle>
 				<div className="inner">
@@ -18,64 +17,46 @@ const Forms = () => {
 						<div className="img-ovf"></div>
 					</div>
 					<div className="inner-content">
-						<div className="title bigger-c">Forms</div>
+						<div className="title bigger-c">Agreement</div>
 					</div>
 				</div>
 			</MiddleImageStyle>
 
 			<section className="interactive-forms">
 				<div className="inner">
-					{/* <div className="title">Interactive Forms</div> */}
+					{/* <div className="title">Interactive Agreement</div> */}
 					<div className="form-list">
-						<div className="form-item">
-							<div className="f-a" onClick={() => setActiveForm({ url: personalBridging, title: "Personal Bridging Loan Application", google: gPersonalBridging })}>
+						{agreementForms.map(item => <div key={item.id} className="form-item">
+							<div className="f-a">
 								<div className="img-part">
-									<img src="/images/forms/pbla.png" alt="Personal Bridging Loan Application" />
+									<img src={item.img} alt={item.name} />
 								</div>
 								<div className="txt-part">
-									<h3>Personal Bridging Loan Application</h3>
+									<h3>{item.name}</h3>
+								</div>
+								<div className="btn-part">
+									<a href={item.url} download={item.name} target="_blank" rel="noopener noreferrer">Download</a>
+									<button onClick={() => setActiveForm({ title: item.name, google: item.google })}>View</button>
 								</div>
 							</div>
-						</div>
-						<div className="form-item">
-							<div className="f-a" onClick={() => setActiveForm({ url: bridging365Companies, title: "Bridging 365 Companies Application", google: gBridging365Companies })}>
-								<div className="img-part">
-									<img src="/images/forms/b365ca.png" alt="Bridging 365 Companies Application" />
-								</div>
-								<div className="txt-part">
-									<h3>Bridging 365 Companies Application</h3>
-								</div>
-							</div>
-						</div>
-						<div className="form-item">
-							<div className="f-a" onClick={() => setActiveForm({ url: bridging365Development, title: "Bridging 365 Development Finance Application", google: gBridging365Development })}>
-								<div className="img-part">
-									<img src="/images/forms/b365dfa.png" alt="Bridging 365 Development Finance Application" />
-								</div>
-								<div className="txt-part">
-									<h3>Bridging 365 Development Finance Application</h3>
-								</div>
-							</div>
-						</div>
+						</div>)}
 					</div>
 				</div>
 			</section>
 
-			<section className={"form-fill-holder " + (activeForm.url.length > 0 ? "show" : "")}>
-				<div className="cancel-x" onClick={() => setActiveForm({ title: "", url: "", google: "" })}>
+			<section className={"form-fill-holder " + (activeForm.google.length > 0 ? "show" : "")}>
+				<div className="cancel-x" onClick={() => setActiveForm({ title: "", google: "" })}>
 					<div className="cax"><FaTimes /></div>
 				</div>
 				<div className="frame-hol">
-					{/* {activeForm.url.length > 0 && <iframe title={activeForm.title} type='application/pdf' height="100%" width="100%" src={activeForm.url} />} */}
-					{activeForm.url.length > 0 && <embed src={activeForm.url} type="application/pdf" height="100%" width="100%" className="desk-o" />}
-					{activeForm.url.length > 0 && <embed src={activeForm.google} width="100%" height="100%" className="mob-o" />}
+					{activeForm.google.length > 0 && <embed src={activeForm.google} width="100%" height="100%" className="mob-o" />}
 				</div>
 			</section>
 
-		</FormsStyles>
+		</AgreementStyles>
 	)
 }
-const FormsStyles = styled.div`
+const AgreementStyles = styled.div`
 	width: 100%;
 	flex: 1;
 
@@ -105,9 +86,15 @@ const FormsStyles = styled.div`
 				justify-content: space-around;
 				flex-wrap: wrap;
 
+				span.over {
+					display: block;
+					width: 100%;
+					height: .01pc;
+				}
+
 				.form-item {
 					cursor: pointer;
-					width: 33%;
+					width: 30%;
 					padding: 1pc;
 
 					@media screen and (max-width: 1000px) {
@@ -128,17 +115,13 @@ const FormsStyles = styled.div`
 						border-radius: 30px;
 						overflow: hidden;
 						background: #ffffff;
-						border: 1px solid rgba(7, 36, 71, 0.1);
+						border: 1px solid rgba(7, 36, 71, 0.3);
 						box-shadow:  28px 28px 56px #ebebeb, -28px -28px 56px #ffffff;
 						height: 100%;
-						transition: transform .5s;
-
-						&:hover {
-							transform: scale(1.05);
-						}
 
 						.img-part {
 							width: 100%;
+							display: flex;
 							
 							img {
 								width: 100%;
@@ -155,6 +138,41 @@ const FormsStyles = styled.div`
 							@media screen and (max-width: 600px) {
 								font-size: .8pc;
 								line-height: 1.5pc;
+							}
+						}
+
+						.btn-part {
+							padding: 1.5pc 1pc;
+							padding-top: 0;
+							flex: 1;
+							text-align: center;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							a, button {
+								display: inline-flex;
+								text-decoration: none;
+								color: #fff;
+								border: 0 none;
+								outline: 0 none;
+								background-color: #487cff;
+								padding: .2pc 1pc;
+								border-radius: .5pc;
+								transition: background-color .5s;
+								margin: 0 .2pc;
+								
+								&:hover {
+									background-color: #072447;
+								}
+							}
+							
+							a {
+								background-color: #41a330;
+								
+								&:hover {
+									background-color: #1c5d11;
+								}
 							}
 						}
 					}
@@ -205,19 +223,13 @@ const FormsStyles = styled.div`
 			display: flex;
 			width: calc(100% - 5pc);
 			height: 100%;
+			background-color: #fff;
 
 			iframe {
 				border: 0px;
 			}
 		}
-
-		.mob-o {display: none;}
-		.desk-o {display: initial;}
-		@media (hover:none), (hover:on-demand) { 
-			.mob-o {display: initial;}
-			.desk-o {display: none;}
-		}
 	}
 
 `
-export default Forms
+export default Agreement
