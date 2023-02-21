@@ -3,9 +3,10 @@ import { FaTimes } from "react-icons/fa"
 import styled from "styled-components"
 import { MiddleImageStyle } from "../general/SectionStyles"
 import { bridging365Companies, bridging365Development, personalBridging } from "./form64"
+import { gBridging365Companies, gBridging365Development, gPersonalBridging } from "./formGoogle"
 
 const Forms = () => {
-	const [activeForm, setActiveForm] = useState({ title: "", url: "" })
+	const [activeForm, setActiveForm] = useState({ title: "", url: "", google: "" })
 
 	return (
 		<FormsStyles>
@@ -27,7 +28,7 @@ const Forms = () => {
 					{/* <div className="title">Interactive Forms</div> */}
 					<div className="form-list">
 						<div className="form-item">
-							<div className="f-a" onClick={() => setActiveForm({ url: personalBridging, title: "Personal Bridging Loan Application" })}>
+							<div className="f-a" onClick={() => setActiveForm({ url: personalBridging, title: "Personal Bridging Loan Application", google: gPersonalBridging })}>
 								<div className="img-part">
 									<img src="/images/forms/pbla.png" alt="Personal Bridging Loan Application" />
 								</div>
@@ -37,7 +38,7 @@ const Forms = () => {
 							</div>
 						</div>
 						<div className="form-item">
-							<div className="f-a" onClick={() => setActiveForm({ url: bridging365Companies, title: "Bridging 365 Companies Application" })}>
+							<div className="f-a" onClick={() => setActiveForm({ url: bridging365Companies, title: "Bridging 365 Companies Application", google: gBridging365Companies })}>
 								<div className="img-part">
 									<img src="/images/forms/b365ca.png" alt="Bridging 365 Companies Application" />
 								</div>
@@ -47,7 +48,7 @@ const Forms = () => {
 							</div>
 						</div>
 						<div className="form-item">
-							<div className="f-a" onClick={() => setActiveForm({ url: bridging365Development, title: "Bridging 365 Development Finance Application" })}>
+							<div className="f-a" onClick={() => setActiveForm({ url: bridging365Development, title: "Bridging 365 Development Finance Application", google: gBridging365Development })}>
 								<div className="img-part">
 									<img src="/images/forms/b365dfa.png" alt="Bridging 365 Development Finance Application" />
 								</div>
@@ -61,16 +62,13 @@ const Forms = () => {
 			</section>
 
 			<section className={"form-fill-holder " + (activeForm.url.length > 0 ? "show" : "")}>
-				<div className="cancel-x" onClick={() => setActiveForm({ title: "", url: "" })}>
+				<div className="cancel-x" onClick={() => setActiveForm({ title: "", url: "", google: "" })}>
 					<div className="cax"><FaTimes /></div>
 				</div>
 				<div className="frame-hol">
 					{/* {activeForm.url.length > 0 && <iframe title={activeForm.title} type='application/pdf' height="100%" width="100%" src={activeForm.url} />} */}
-					{activeForm.url.length > 0 && <embed src={activeForm.url} type="application/pdf" height="100%" width="100%" />}
-					{activeForm.url.length > 0 && <object data={activeForm.url} type="application/pdf" height="100%" width="100%">
-						{/* <embed src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${activeForm.url}`} width="100%" height="100%" /> */}
-						<embed src="https://drive.google.com/file/d/1gly0YFYqI6j8O8JNE-vsQCYDrxdLL0K2/preview?usp=sharing" width="100%" height="100%" />
-					</object>}
+					{activeForm.url.length > 0 && <embed src={activeForm.url} type="application/pdf" height="100%" width="100%" className="desk-o" />}
+					{activeForm.url.length > 0 && <embed src={activeForm.google} width="100%" height="100%" className="mob-o" />}
 				</div>
 			</section>
 
@@ -108,6 +106,7 @@ const FormsStyles = styled.div`
 				flex-wrap: wrap;
 
 				.form-item {
+					cursor: pointer;
 					width: 33%;
 					padding: 1pc;
 
@@ -210,6 +209,13 @@ const FormsStyles = styled.div`
 			iframe {
 				border: 0px;
 			}
+		}
+
+		.mob-o {display: none;}
+		.desk-o {display: initial;}
+		@media (hover:none), (hover:on-demand) { 
+			.mob-o {display: initial;}
+			.desk-o {display: none;}
 		}
 	}
 
