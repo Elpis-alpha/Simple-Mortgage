@@ -65,7 +65,12 @@ const Forms = () => {
 					<div className="cax"><FaTimes /></div>
 				</div>
 				<div className="frame-hol">
-					{activeForm.url.length > 0 && <iframe title={activeForm.title} type='application/pdf' height="100%" width="100%" src={activeForm.url} />}
+					{/* {activeForm.url.length > 0 && <iframe title={activeForm.title} type='application/pdf' height="100%" width="100%" src={activeForm.url} />} */}
+					{activeForm.url.length > 0 && <embed src={activeForm.url} type="application/pdf" height="100%" width="100%" />}
+					{activeForm.url.length > 0 && <object data={activeForm.url} type="application/pdf" height="100%" width="100%">
+						{/* <embed src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${activeForm.url}`} width="100%" height="100%" /> */}
+						<embed src="https://drive.google.com/file/d/1gly0YFYqI6j8O8JNE-vsQCYDrxdLL0K2/preview?usp=sharing" width="100%" height="100%" />
+					</object>}
 				</div>
 			</section>
 
