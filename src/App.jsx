@@ -20,7 +20,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/calculator' element={<MortgageCalculator />} />
         <Route path='/forms' element={<Forms />} />
-        <Route path='/forms/personal-bridging-loan-application' element={<PersonalBridgingLoanApplication />} />
+        <Route path='/archive/forms/personal-bridging-loan-application' element={<PersonalBridgingLoanApplication />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
       <Footer />

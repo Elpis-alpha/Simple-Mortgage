@@ -6,17 +6,17 @@ const GlobalStyle = createGlobalStyle`
 
 @font-face{
   font-family: 'Styled';
-  src: url(/fonts/MuseoModerno.ttf);
+  src: url(/fonts/Nunito.ttf);
 }
 
 @font-face{
   font-family: 'Main';
-  src: url(/fonts/MuseoModerno.ttf);
+  src: url(/fonts/Nunito.ttf);
 }
 
 @font-face{
   font-family: 'Styled';
-  src: url(/fonts/MuseoModerno.ttf);
+  src: url(/fonts/Nunito.ttf);
 }
 
 /* Fonts Used End */
@@ -163,6 +163,7 @@ body{
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
+  font-weight: 600;
 }
 
 body > #root{

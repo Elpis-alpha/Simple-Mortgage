@@ -18,7 +18,7 @@ const HomePage = () => {
           </div>
           <div className="inner-content center">
             <div className="title">We give quality advice on your mortgage</div>
-            <div className="content">{siteName} seek out money-saving mortgage deals for our clients at every stage of the property lifecycle. First class customer care is at the core of our professional mortgage and insurance services; this means asking the right questions, giving honest and straightforward mortgage advice, finding a mortgage that works in your interests - rather than our own - and making the whole process, from application to offer, simple and stress free. Read on for more information about the services we offer.</div>
+            <div className="content">We don't think that's right. Over 50,000 people have benefited from our expert advice.</div>
             <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
           </div>
         </div>
