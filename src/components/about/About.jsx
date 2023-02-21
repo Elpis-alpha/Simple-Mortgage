@@ -10,7 +10,7 @@ const About = () => {
 			<MiddleImageStyle>
 				<div className="inner">
 					<div className="img-part">
-						<img src="/images/full-about.jpg" alt="About us" />
+						<img src="/images/full-contact.png" alt="About us" />
 						<div className="img-ovf"></div>
 					</div>
 					<div className="inner-content">
@@ -24,7 +24,7 @@ const About = () => {
 				<div className="inner">
 					<div className="inner-content">
 						<div className="side immg">
-							<img src="/images/sci-fi.jpg" alt="Advancement" />
+							<img src="https://cdni.iconscout.com/illustration/premium/thumb/real-estate-mortgage-calculation-4521318-3757069.png?f=avif" alt="Advancement" />
 						</div>
 						<div className="side text">
 							<div className="title">Who we are</div>
@@ -47,7 +47,7 @@ const About = () => {
 							</div>
 						</div>
 						<div className="side immg">
-							<img src="/images/partnership.jpg" alt="Customized Rates" />
+							<img src="https://cdni.iconscout.com/illustration/premium/thumb/partnership-handshake-5984440-4969869.png?f=avif" alt="Customized Rates" />
 						</div>
 					</div>
 				</div>
@@ -88,7 +88,7 @@ const About = () => {
 				<div className="inner">
 					<div className="inner-content">
 						<div className="side immg">
-							<img src="/images/contract.jpg" alt="Advancement" />
+							<img src="https://cdni.iconscout.com/illustration/premium/thumb/priorities-organize-6301254-5230241.png?f=avif" alt="Advancement" />
 						</div>
 						<div className="side text">
 							<div className="title">Our Priorites</div>
@@ -112,7 +112,7 @@ const About = () => {
 							</div>
 						</div>
 						<div className="side immg">
-							<img src="/images/cheerful-family.jpg" alt="Customized Rates" />
+							<img src="https://cdni.iconscout.com/illustration/premium/thumb/doctor-getting-award-in-covid-4788307-3988918.png?f=avif" alt="Customized Rates" />
 						</div>
 					</div>
 				</div>
@@ -123,6 +123,7 @@ const About = () => {
 }
 
 const AboutStyle = styled.div`
-	
+	width: 100%;
+	flex: 1;
 `
 export default About

@@ -13,14 +13,18 @@ const HomePage = () => {
       <MiddleImageStyle>
         <div className="inner">
           <div className="img-part">
-            <img src="/images/home.jpg" alt="Mortgage" />
+            <img src="/images/home.png" className='home-ssd only-desk' alt="Mortgage" />
+            <img src="/images/home-mobile.png" className='home-ssd only-mobi' alt="Mortgage" />
             {/* <div className="img-ovf"></div> */}
           </div>
-          <div className="inner-content">
+          <div className="inner-content duo-cont">
             <div className="duo">
               <div className="title">On your mortgage, we seamlessly provide excellent assistance.</div>
               <div className="content">We don't think that's right. Over 50,000 people have benefited from our expert advice.</div>
               <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
+            </div>
+            <div className="duo pic">
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-4495947-3811071.png?f=webp" alt="Home Main" />
             </div>
           </div>
         </div>
@@ -30,13 +34,13 @@ const HomePage = () => {
         <div className="inner">
           <div className="inner-content">
             <div className="side immg">
-              <img src="/images/scale-balance.jpg" alt="Scale Balance" />
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-loan-6430742-5307605.png?f=avif" alt="Scale Balance" />
             </div>
             <div className="side text">
-              <div className="title">Extensive Deals</div>
+              <div className="title">Find your perfect mortgage</div>
               <div className="content">
-                Whether you're curious about new mortgage deals, rising interest rates or if remortgaging is an option for you,
-                your remortgage adviser will be happy to answer any questions and offer advice.
+                Mortgage Scout have been matching buyers with mortgages for over 20 years. Combining attention
+                to detail with industry knowledge, we'll track down the deal that suits you best.
               </div>
               <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
             </div>
@@ -56,7 +60,7 @@ const HomePage = () => {
               <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
             </div>
             <div className="side immg">
-              <img src="/images/coin-house.jpg" alt="Customized Rates" />
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-loan-5329704-4465458.png?f=avif" alt="Customized Rates" />
             </div>
           </div>
         </div>
@@ -104,14 +108,14 @@ const HomePage = () => {
         <div className="inner">
           <div className="inner-content">
             <div className="side immg">
-              <img src="/images/insurance.jpg" alt="Scale Balance" />
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/real-estate-mortgage-calculation-4521318-3757069.png?f=avif" alt="Scale Balance" />
             </div>
             <div className="side text">
-              <div className="title">Insurance</div>
+              <div className="title">Why people choose us?</div>
               <div className="content">
-                When you buy insurance through {siteName}, the value added to your mortgage purchase really is priceless.
+                {siteName} provide a trusted professional service. Our mortgage advisers love what they do.
               </div>
-              <div className="button"><Link to="/contact" className='btn-8'>Get Started</Link></div>
+              <div className="button"><Link to="/about" className='btn-8'>Learn more</Link></div>
             </div>
           </div>
         </div>
@@ -129,7 +133,7 @@ const HomePage = () => {
               <div className="button"><Link to="/about" className='btn-8'>Get Started</Link></div>
             </div>
             <div className="side immg">
-              <img src="/images/key-house.jpg" alt="Customized Rates" />
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-loan-6440849-5331752.png?f=avif" alt="Customized Rates" />
             </div>
           </div>
         </div>
