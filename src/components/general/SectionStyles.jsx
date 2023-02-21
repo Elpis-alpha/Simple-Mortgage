@@ -149,6 +149,8 @@ export const SideImageStyle = styled.section`
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			max-width: 1100px;
+			margin: auto;
 
 			.side {
 				width: 50%;

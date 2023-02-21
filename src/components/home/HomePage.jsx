@@ -37,7 +37,6 @@ const HomePage = () => {
               <div className="content">
                 Whether you're curious about new mortgage deals, rising interest rates or if remortgaging is an option for you,
                 your remortgage adviser will be happy to answer any questions and offer advice.
-                Speak to your expert adviser for free during your remortgaging journey.
               </div>
               <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
             </div>
@@ -111,9 +110,6 @@ const HomePage = () => {
               <div className="title">Insurance</div>
               <div className="content">
                 When you buy insurance through {siteName}, the value added to your mortgage purchase really is priceless.
-                Our protection insurance advice makes all the difference, particularly if you need to claim against
-                critical illness during your mortgage term. Our mortgage and protection advisers will shop around for
-                competitive insurance products, saving you money and protecting the roof over your head too.
               </div>
               <div className="button"><Link to="/contact" className='btn-8'>Get Started</Link></div>
             </div>
