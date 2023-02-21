@@ -36,7 +36,7 @@ const Application = () => {
 						<div className="desc">
 							Phosfluorescently productivate mission-critical materials after integrated functionalities. Seamlessly reconceptualize client-focused methodologies with an expanded array.
 						</div>
-						<Link to="/application/forms">View Agreements</Link>
+						<Link to="/application/agreement">View Agreements</Link>
 					</div>
 
 				</div>
