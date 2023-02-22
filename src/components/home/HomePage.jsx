@@ -68,6 +68,10 @@ const HomePage = () => {
 
       <WhyUSStyle>
         <div className="inner">
+          {/* <div className="img-part">
+            <img src="/images/whyus.png" className='home-ssd only-desk' alt="Mortgage" />
+            <img src="/images/whyus-mobile.png" className='home-ssd only-mobi' alt="Mortgage" />
+          </div> */}
           <div className="inner-content">
             <div className="title">Why Choose {siteName}?</div>
             <div className="listed-parts">

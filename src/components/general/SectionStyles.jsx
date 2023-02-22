@@ -384,6 +384,57 @@ export const WhyUSStyle = styled.section`
 				}
 			}
 		}
+		
+		.img-part {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 5;
+			width: 100%;
+			height: 100%;
+
+			.img-ovf {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 5;
+				width: 100%;
+				height: 100%;
+				opacity: .6;
+				background-color: #000;
+			}
+			
+			img {
+				z-index: 4;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+
+				&.home-ssd {
+					object-fit: fill;
+				}
+				
+				&.only-mobi {
+					display: none;
+				}
+				&.only-desk {
+					display: initial;
+				}
+
+				@media screen and (max-width: 950px) {
+					&.only-mobi {
+						display: initial;
+					}
+					&.only-desk {
+						display: none;
+					}
+				}
+			}
+		}
 	}
 `
 
