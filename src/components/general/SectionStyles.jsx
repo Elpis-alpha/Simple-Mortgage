@@ -203,7 +203,7 @@ export const SideImageStyle = styled.section`
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			max-width: 1100px;
+			max-width: 1000px;
 			margin: auto;
 
 			.side {
