@@ -140,7 +140,7 @@ const MortgageDealsStyle = styled.div`
 
 	.mor-calc {
 		color: #072447;
-		padding: 6pc 3pc;
+		padding: 6pc 2pc;
 
 		form {
 			

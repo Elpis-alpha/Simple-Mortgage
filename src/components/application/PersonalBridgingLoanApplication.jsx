@@ -1370,7 +1370,7 @@ const PersonalBridgingLoanApplicationStyle = styled.div`
 	flex: 1;
 
 	.inner-s {
-		padding: 6pc 3pc;
+		padding: 6pc 2pc;
 
 		section.form-sec {
 			padding-bottom: 1pc;

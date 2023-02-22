@@ -86,7 +86,7 @@ const NavBarStyle = styled.nav`
 	}
 	.heading {
 		a{
-			padding: 1.8rem;
+			padding: 2rem;
 			line-height: 2pc;
 			display: block;
 			font-size: 1.2pc;
@@ -108,6 +108,7 @@ const NavBarStyle = styled.nav`
 		ul{
 			display: flex;
 			list-style-type: none;
+			padding-right: 1pc;
 			li{
 				display: flex;
 				align-items: center;

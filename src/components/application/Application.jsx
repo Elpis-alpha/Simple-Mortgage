@@ -55,7 +55,7 @@ const ApplicationStyle = styled.div`
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		padding: 6pc 3pc;
+		padding: 6pc 2pc;
 		color: #072447;
 	
 		.inner {

@@ -11,7 +11,7 @@ export const MiddleImageStyle = styled.section`
 
 		.inner-content {
 			z-index: 20;
-			padding: 6pc 3pc;
+			padding: 6pc 2pc;
 			color: #fff;
 			
 			@media screen and (max-width: 600px) {
@@ -198,7 +198,7 @@ export const SideImageStyle = styled.section`
 		width: 100%;
 
 		.inner-content {
-			padding: 6pc 3pc;
+			padding: 6pc 2pc;
 			color: #072447;
 			display: flex;
 			align-items: center;
@@ -266,7 +266,7 @@ export const WhyUSStyle = styled.section`
 
 		.inner-content {
 			z-index: 20;
-			padding: 6pc 3pc;
+			padding: 6pc 2pc;
 			color: #072447;
 			text-align: center;
 
