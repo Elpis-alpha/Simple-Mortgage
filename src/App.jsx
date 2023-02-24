@@ -15,7 +15,7 @@ const App = () => {
   const location = useLocation()
   return (
     <>
-      <NavBar light={location.pathname !== "/"} />
+      <NavBar light={false} />
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<HomePage />} />
         <Route path='/contact' element={<Contact />} />

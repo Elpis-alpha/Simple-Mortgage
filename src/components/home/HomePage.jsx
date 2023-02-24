@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { MiddleImageStyle, SideImageStyle, WhyUSStyle } from '../general/SectionStyles'
 import { Link } from "react-router-dom"
-import { FaHome, FaTools } from "react-icons/fa"
+import { FaDollarSign, FaHome, FaTools } from "react-icons/fa"
 import { RiCupLine } from "react-icons/ri"
-import { siteName } from '../../utils'
+import ContactFooter from '../general/ContactFooter'
 
 const HomePage = () => {
   return (
@@ -13,24 +13,25 @@ const HomePage = () => {
       <MiddleImageStyle>
         <div className="inner">
           <div className="img-part">
-            <img src="/images/home.png" className='home-ssd only-desk' alt="Mortgage" />
+            <img src="/images/home.png" className='home-ssd only-desk' alt="Mortgage" style={{ objectFit: "cover", overflow: "visible" }} />
             <img src="/images/home-mobile.png" className='home-ssd only-mobi' alt="Mortgage" />
             {/* <div className="img-ovf"></div> */}
           </div>
           <div className="inner-content duo-cont">
-            <div className="duo">
-              <div className="title">On your mortgage, we seamlessly provide excellent assistance.</div>
+            <div className="duo" style={{ zIndex: 20 }}>
+              <div className="title"><div className="sxc">On your mortgage,</div><div className="sxc">we seamlessly provide</div><div className="sxc">excellent assistance.</div></div>
               <div className="content">We don't think that's right. Over 50,000 people have benefited from our expert advice.</div>
               <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
             </div>
             <div className="duo pic">
-              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-4495947-3811071.png?f=webp" alt="Home Main" />
+              {/* <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-4495947-3811071.png?f=webp" alt="Home Main" /> */}
+              <img src="/images/home-hero.png" alt="Home Main" />
             </div>
           </div>
         </div>
       </MiddleImageStyle>
 
-      <SideImageStyle>
+      <SideImageStyle style={{ zIndex: 50 }}>
         <div className="inner">
           <div className="inner-content">
             <div className="side immg">
@@ -54,8 +55,8 @@ const HomePage = () => {
             <div className="side text">
               <div className="title">Customized Rates</div>
               <div className="content">
-                We provide a vast array of rates and services from which you can choose one which suits
-                your capacity.
+                You can choose from a wide range of mortgage rates and services that we offer to find one that fits your budget.
+                Select the mortgage rate and service that best meets your needs.
               </div>
               <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
             </div>
@@ -73,10 +74,10 @@ const HomePage = () => {
             <img src="/images/whyus-mobile.png" className='home-ssd only-mobi' alt="Mortgage" />
           </div> */}
           <div className="inner-content">
-            <div className="title">Why Choose {siteName}?</div>
+            <div className="title">Why Choose Us</div>
             <div className="listed-parts">
               <div className="list-item">
-                <div className="l-side"><FaHome /></div>
+                <div className="l-side"><FaDollarSign /></div>
                 <div className="r-side">
                   <div className="tit">Rising cost of living</div>
                   <div className="con">As interest and inflation rates increase, you can fix your rate to keep your repayments secure to help with bills and expenses.</div>
@@ -117,7 +118,7 @@ const HomePage = () => {
             <div className="side text">
               <div className="title">Why people choose us?</div>
               <div className="content">
-                {siteName} provide a trusted professional service. Our mortgage advisers love what they do.
+                A reliable professional service is offered by MASTER YOUR MORTGAGE. Our mortgage consultants love what they do, and their devotion to finding money saving mortgages allows our clients live the life they've always desired.
               </div>
               <div className="button"><Link to="/about" className='btn-8'>Learn more</Link></div>
             </div>
@@ -143,6 +144,8 @@ const HomePage = () => {
         </div>
       </SideImageStyle>
 
+      <ContactFooter />
+
     </HomePageStyle>
   )
 }
@@ -152,6 +155,8 @@ const HomePageStyle = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  flex: 1;
+  width: 100%;
 `
 
 export default HomePage

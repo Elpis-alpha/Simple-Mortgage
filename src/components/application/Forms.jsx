@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { FaTimes } from "react-icons/fa"
-import { FormsStyles, MiddleImageStyle } from "../general/SectionStyles"
+import ContactFooter from "../general/ContactFooter"
+import { FormsStyles, TopHeaderStyle } from "../general/SectionStyles"
 import allForms from "./formGoogle"
 
 const Forms = () => {
@@ -9,17 +10,13 @@ const Forms = () => {
 	return (
 		<FormsStyles>
 
-			<MiddleImageStyle>
+			<TopHeaderStyle>
 				<div className="inner">
-					<div className="img-part">
-						<img src="/images/full-contact.png" alt="Contact Main" />
-						<div className="img-ovf"></div>
-					</div>
 					<div className="inner-content">
 						<div className="title bigger-c">Forms</div>
 					</div>
 				</div>
-			</MiddleImageStyle>
+			</TopHeaderStyle>
 
 			<section className="interactive-forms">
 				<div className="inner">
@@ -44,6 +41,8 @@ const Forms = () => {
 					</div>
 				</div>
 			</section>
+
+			<ContactFooter />
 
 			<section className={"form-fill-holder " + (activeForm.url.length > 0 ? "show" : "")}>
 				<div className="cancel-x" onClick={() => setActiveForm({ title: "", url: "", google: "" })}>

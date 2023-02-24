@@ -1,47 +1,44 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { MiddleImageStyle } from "../general/SectionStyles"
+import ContactFooter from "../general/ContactFooter"
+import { ApplicationBlocks, TopHeaderStyle } from "../general/SectionStyles"
 
 const Application = () => {
 	return (
 		<ApplicationStyle>
 
-			<MiddleImageStyle>
+			<TopHeaderStyle>
 				<div className="inner">
-					<div className="img-part">
-						<img src="/images/full-contact.png" alt="Contact Main" />
-						<div className="img-ovf"></div>
-					</div>
 					<div className="inner-content">
 						<div className="title bigger-c">Application</div>
 					</div>
 				</div>
-			</MiddleImageStyle>
+			</TopHeaderStyle>
 
-			<section className="apl-options">
-
+			<ApplicationBlocks>
 				<div className="inner">
-
-
-					<div className="in-j">
-						<div className="title">Application Forms</div>
-						<div className="desc">
-							Phosfluorescently productivate mission-critical materials after integrated functionalities. Seamlessly reconceptualize client-focused methodologies with an expanded array.
+					<div className="inner-content">
+						<div className="listed-parts">
+							<div className="list-item">
+								<div className="tit">Application Agreements</div>
+								<div className="nom">A collection of all relevant forms to the mortgaging process.</div>
+								<div className="button">
+									<Link to="/application/forms">View Forms</Link>
+								</div>
+							</div>
+							<div className="list-item">
+								<div className="tit">Application Agreements</div>
+								<div className="nom">A collection of all agreement documents to the mortgaging process.</div>
+								<div className="button">
+									<Link to="/application/agreement">View Agreements</Link>
+								</div>
+							</div>
 						</div>
-						<Link to="/application/forms">View Forms</Link>
 					</div>
-
-					<div className="in-j">
-						<div className="title">Application Agreements</div>
-						<div className="desc">
-							Phosfluorescently productivate mission-critical materials after integrated functionalities. Seamlessly reconceptualize client-focused methodologies with an expanded array.
-						</div>
-						<Link to="/application/agreement">View Agreements</Link>
-					</div>
-
 				</div>
+			</ApplicationBlocks>
 
-			</section>
+			<ContactFooter />
 
 		</ApplicationStyle>
 	)

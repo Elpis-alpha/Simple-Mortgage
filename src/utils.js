@@ -10,6 +10,8 @@ export const adminEmail = "admin@masteryourmortgage.com"
 export const contactEmail = "contact@masteryourmortgage.com"
 export const otherEmail = "other@masteryourmortgage.com"
 export const address = "30 Churchill Place, Canary Wharf London, E14 5EU"
+export const addressShort = "30 Churchill Place"
+export const addressLink = "https://goo.gl/maps/oxvCdYuJS42ywap98"
 
 // Footer
 export const footerMarque = [

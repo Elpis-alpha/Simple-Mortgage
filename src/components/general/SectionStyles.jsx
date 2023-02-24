@@ -11,7 +11,7 @@ export const MiddleImageStyle = styled.section`
 
 		.inner-content {
 			z-index: 20;
-			padding: 6pc 2pc;
+			padding: 3pc 2pc;
 			color: #fff;
 			
 			@media screen and (max-width: 600px) {
@@ -47,7 +47,8 @@ export const MiddleImageStyle = styled.section`
 					border-radius: .2pc;
 					transition: background-color .5s, color .5s;
 					display: inline-block;
-					
+					box-shadow: 1px 2px 17px #4c7bff;
+
 					&:hover {
 						background-color: transparent;
 						color: #fff;
@@ -57,22 +58,33 @@ export const MiddleImageStyle = styled.section`
 
 			&.duo-cont {
 				display: flex;
-				justify-content: space-between;
-				padding: 6pc 2pc;
-				padding-top: 3pc;
+				justify-content: center;
+				padding: 0 3pc;
+				padding-top: 2pc;
+				padding-bottom: 3pc;
 				flex-wrap: wrap;
+				/* max-width: 1000px; */
+				/* margin: auto; */
+				.sxc {
+					white-space: pre;
+				}
 
 				@media screen and (max-width: 950px) {
+					padding: 1pc 2pc;
 					padding-bottom: 3pc;
 				}
 			}
 
 			.duo {
-				width: 50%;
+				width: 52%;
+				justify-content: center;
+				display: flex;
+				flex-direction: column;
 				/* padding-right: 2pc; */
 
 				&.pic {
-					width: 50%;
+					width: 38%;
+					/* width: 50%; */
 					display: flex;
 					align-items: flex-start;
 					justify-content: flex-start;
@@ -87,7 +99,7 @@ export const MiddleImageStyle = styled.section`
 					width: 100%;
 					
 					&.pic {
-						padding-top: 2pc;
+						/* padding-top: 2pc; */
 						width: 100%;
 						align-items: center;
 						justify-content: center;
@@ -97,9 +109,26 @@ export const MiddleImageStyle = styled.section`
 				}			
 
 				.title {
-					font-size: 52px;
-					line-height: 70px;
+					font-size: 47px;
+					line-height: 62px;
 					font-weight: 700;
+					
+					@media screen and (max-width: 1000px) {
+						font-size: 58px;
+						line-height: 72px;
+					}
+					@media screen and (min-width: 1100px) {
+						font-size: 51px;
+						line-height: 68px;
+					}
+					@media screen and (min-width: 1300px) {
+						font-size: 58px;
+						line-height: 72px;
+					}
+					@media screen and (min-width: 1400px) {
+						font-size: 66px;
+						line-height: 80px;
+					}
 				}
 
 				.content {
@@ -107,6 +136,11 @@ export const MiddleImageStyle = styled.section`
 					line-height: 32px;
 					padding-top: 1.5pc;
 					padding-bottom: 1pc;
+					width: 90%;
+
+					@media screen and (max-width: 950px) {
+						width: 70%;
+					}
 				}
 				
 				@media screen and (max-width: 760px) {
@@ -123,6 +157,14 @@ export const MiddleImageStyle = styled.section`
 					.title {
 						font-size: 32px;
 						line-height: 46px;
+						@media screen and (max-width: 400px) {
+							font-size: 28px;
+							line-height: 36px;
+						}
+						@media screen and (max-width: 350px) {
+							font-size: 22px;
+							line-height: 32px;
+						}
 					}
 
 					.content {
@@ -154,7 +196,7 @@ export const MiddleImageStyle = styled.section`
 				z-index: 5;
 				width: 100%;
 				height: 100%;
-				opacity: .6;
+				opacity: 0;
 				background-color: #000;
 			}
 			
@@ -188,6 +230,37 @@ export const MiddleImageStyle = styled.section`
 	}
 `
 
+export const TopHeaderStyle = styled.section`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	
+	.inner {
+		width: 100%;
+		background-color: #4c7bff;
+
+		.inner-content {
+			z-index: 20;
+			padding: 1.5pc 3pc;
+			color: #fff;
+			padding-top: 0;
+			
+			@media screen and (max-width: 600px) {
+				padding: 2pc 2pc;
+				padding-top: 1pc;
+			}
+
+			.title {
+				font-size: 3pc;
+				line-height: 4pc;
+				font-weight: bold;
+				padding-bottom: .7pc;
+			}
+		}
+	}
+`
+
 export const SideImageStyle = styled.section`
 	display: flex;
 	align-items: center;
@@ -198,12 +271,12 @@ export const SideImageStyle = styled.section`
 		width: 100%;
 
 		.inner-content {
-			padding: 6pc 2pc;
+			padding: 1pc 5pc;
 			color: #072447;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			max-width: 1000px;
+			/* max-width: 1200px; */
 			margin: auto;
 
 			.side {
@@ -216,10 +289,20 @@ export const SideImageStyle = styled.section`
 			}
 
 			.title {
-				font-size: 1.8pc;
-				line-height: 2.5pc;
+				font-size: 4pc;
+				line-height: 4.5pc;
 				font-weight: bold;
 				padding-bottom: .7pc;
+				
+				@media screen and (max-width: 1200px) {
+					font-size: 3.5pc;
+					line-height: 4.5pc;
+				}
+				
+				@media screen and (max-width: 600px) {
+					font-size: 2.5pc;
+					line-height: 3.5pc;
+				}
 			}
 
 			.button {
@@ -242,6 +325,10 @@ export const SideImageStyle = styled.section`
 			
 			@media screen and (max-width: 1000px) {
 				flex-direction: column;
+				padding: 2pc 3pc;
+				@media screen and (max-width: 600px) {
+					padding: 3pc 2pc;
+				}
 
 				.side {
 					width: 100%;
@@ -260,28 +347,48 @@ export const WhyUSStyle = styled.section`
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	
+
 	.inner {
 		width: 100%;
 
 		.inner-content {
 			z-index: 20;
-			padding: 6pc 2pc;
+			padding: 0 3pc;
 			color: #072447;
 			text-align: center;
 
+			@media screen and (max-width: 600px) {
+				padding: 2pc;
+			}
+
 			.title {
-				font-size: 1.8pc;
-				line-height: 2.5pc;
+				font-size: 3pc;
+				line-height: 4.5pc;
 				font-weight: bold;
 				padding-bottom: 1.5pc;
+				
+				@media screen and (max-width: 1200px) {
+					font-size: 3.5pc;
+					line-height: 4.5pc;
+				}
+				@media screen and (max-width: 1000px) {
+					text-align: left;
+				}
+				
+				@media screen and (max-width: 500px) {
+					text-align: center;
+				}
+				@media screen and (max-width: 600px) {
+					font-size: 2.5pc;
+					line-height: 3.5pc;
+				}
 			}
 
 			.listed-parts {
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-around;
-				max-width: 1000px;
+				max-width: 1400px;
 				margin: auto;
 
 				span.over {
@@ -295,7 +402,7 @@ export const WhyUSStyle = styled.section`
 					display: flex;
 					align-items: flex-start;
 					width: 50%;
-					max-width: 450px;
+					max-width: 650px;
 					padding: 1pc 2pc;
 
 					@media screen and (max-width: 1000px) {
@@ -320,7 +427,8 @@ export const WhyUSStyle = styled.section`
 						padding-left: 2pc;
 
 						.tit {
-							font-size: 1.2pc;
+							font-size: 1.8pc;
+							line-height: 2.8pc;
 							padding-top: .4pc;
 							padding-bottom: .4pc;
 							font-weight: bold;
@@ -452,22 +560,223 @@ export const ContactBlocks = styled.section`
 			padding: 3pc;
 			color: #072447;
 			text-align: center;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
 
-			@media screen and (max-width: 500px) {
-				padding: 3pc 1pc;
+			@media screen and (max-width: 600px) {
+				padding: 3pc 2pc;
+			}
+
+			.email-part {
+				width: calc(50% - 2pc);
+				text-align: left;
+
+				@media screen and (max-width: 1000px) {
+					width: 100%;
+				}
+				.title {
+					text-align: left;
+					font-weight: bold;
+					font-size: 2pc;
+					padding-top: .5pc;
+					padding-bottom: .5pc;
+				}
+
+				label {
+					display: block;
+					font-weight: bold;
+				}
+
+				input[type="text"], input[type="email"] {
+					width: 100%;
+					padding: 10px 15px;
+					border: 2px solid #ccc;
+					border-radius: 5px;
+					font-size: 16px;
+					color: #555;
+					background-color: #f5f5f5;
+					box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+					transition: border-color 0.3s ease-in-out;
+					margin: 1pc 0;
+					
+					&:focus {
+						outline: none;
+						border-color: #6bb1ff;
+						box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+					}
+				}
+
+				textarea {
+					width: 100%;
+					padding: 10px 15px;
+					border: 2px solid #ccc;
+					border-radius: 5px;
+					font-size: 16px;
+					color: #555;
+					background-color: #f5f5f5;
+					height: 10pc;
+					box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+					transition: border-color 0.3s ease-in-out;
+					margin: 1pc 0;
+					
+					&:focus {
+						outline: none;
+						border-color: #6bb1ff;
+						box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+					}
+				}
+
+				input[type="text"]:focus {
+					outline: none;
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+				}
+
+				button {
+					display: inline-flex;
+					text-decoration: none;
+					color: #fff;
+					background-color: #487cff;
+					padding: .6pc 2pc;
+					border-radius: .5pc;
+					transition: background-color .5s;
+					margin-right: auto;
+					text-align: left;
+					border: 0 none;
+					outline: 0 none;
+					
+					&:hover {
+						background-color: #072447;
+					}
+					
+					&:disabled {
+						opacity: 0.5;
+						cursor: not-allowed;
+					}
+				}
 			}
 
 			.listed-parts {
+				width: calc(50% - 2pc);
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-around;
+
+				@media screen and (max-width: 1000px) {
+					width: 100%;
+					padding-top: 3pc;
+				}
 
 				.list-item {
 					text-align: left;
 					display: flex;
 					align-items: flex-start;
 					flex-direction: column;
-					width: calc(50% - 4pc);
+					width: 100%;
+					margin: 0;
+					margin-bottom: 2pc;
+					padding: 2pc 2.5pc;
+					border-radius: 50px;
+					border: 1px solid #0724471f;
+					/* background: #ffffff; */
+					box-shadow:  27px 27px 54px #ededed, -27px -27px 54px #ffffff;
+
+					@media screen and (max-width: 500px) {
+						padding: 1.5pc;
+						border-radius: 30px;
+					}
+					.tit {
+						font-size: 1.2pc;
+						padding-bottom: .6pc;
+						font-weight: bold;
+					}
+
+					.imp {
+						padding: 0.5pc 0;
+						font-weight: bold;
+					}
+
+					.nom {
+						flex: 1;
+					}
+
+					.soc {
+						display: flex;
+						flex-wrap: wrap;
+						max-width: 12pc;
+						flex: 2;
+
+						a {
+							font-size: 1.5pc;
+							color: inherit;
+							padding: 1pc;
+							display: flex;
+							transition: 0.5s;
+
+							&:hover {
+								opacity: .5;
+							}
+						}
+					}
+					
+					.button {
+						padding-top: 1pc;
+
+						a {
+							display: inline-flex;
+							text-decoration: none;
+							color: #fff;
+							background-color: #487cff;
+							padding: .6pc 2pc;
+							border-radius: .5pc;
+							transition: background-color .5s;
+							
+							&:hover {
+								background-color: #072447;
+							}
+						}
+					}
+
+					@media screen and (max-width: 1000px) {
+						width: 100%;
+						flex-direction: column;
+					}
+				}
+			}
+		}
+	}
+`
+
+export const ApplicationBlocks = styled.section`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	
+	.inner {
+		width: 100%;
+
+		.inner-content {
+			z-index: 20;
+			padding: 2pc 3pc;
+			color: #072447;
+			text-align: center;
+
+			@media screen and (max-width: 500px) {
+				padding: 3pc 2pc;
+			}
+
+			.listed-parts {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+
+				.list-item {
+					text-align: left;
+					display: flex;
+					align-items: flex-start;
+					flex-direction: column;
+					width: calc(50% - 2pc);
 					margin: 2pc 0;
 					padding: 2pc 2.5pc;
 					border-radius: 50px;
@@ -550,15 +859,16 @@ export const FormsStyles = styled.div`
 		align-items: center;
 		justify-content: center;
 		width: 100%;
+		padding: 2pc 0;
 		
 		.inner {
-			padding: 6pc 2pc;
+			padding: 0 3pc;
 			color: #072447;
 			text-align: center;
 			width: 100%;
 			
-			@media screen and (max-width: 500px) {
-				padding: 6pc 1pc;
+			@media screen and (max-width: 600px) {
+				padding: 0 2pc;
 			}
 			.title {
 				font-size: 2.5pc;

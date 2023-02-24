@@ -67,6 +67,7 @@ const NavBarStyle = styled.nav`
 	width: 100%;
 	background-color: #fff;
 	transition: background-color .5s;
+	padding: 0 1pc;
 	&.hide-nav{
 		/* display: none; */
 		height: 0;
@@ -85,16 +86,23 @@ const NavBarStyle = styled.nav`
 		}
 	}
 	.heading {
+		font-family: Header;
 		a{
 			padding: 2rem;
-			line-height: 2pc;
+			line-height: 3pc;
 			display: block;
-			font-size: 1.2pc;
+			font-size: 1.8pc;
 			color: black;
 			text-decoration: none;
 			font-weight: bold;
 			transition: color .5s, background-color .5s;
 			&:hover{color: #4c7bff}
+
+			@media screen and (max-width: 1000px) {font-size: 1.5pc}
+			@media screen and (max-width: 950px) {font-size: 1.2pc}
+			@media screen and (max-width: 900px) {font-size: 1.8pc}
+			@media screen and (max-width: 600px) {font-size: 1.5pc}
+			@media screen and (max-width: 470px) {font-size: 1.2pc; line-height: 2pc}
 		}
 		
 	}
@@ -163,7 +171,7 @@ const NavBarStyle = styled.nav`
 			display: none;
 		}
 	}
-	@media screen and (max-width: 760px) {
+	@media screen and (max-width: 900px) {
 		.ham-holder{
 			display: flex;
 		}    
@@ -261,7 +269,7 @@ const NavBarStyle = styled.nav`
 			}
 		}
 		
-		@media screen and (max-width: 760px) {
+		@media screen and (max-width: 900px) {
 			.children ul li a {
 				color: #072447;
 				&:hover{

@@ -1,24 +1,20 @@
 import styled from "styled-components"
 import { FaCheck } from "react-icons/fa"
 import { siteName } from "../../utils"
-import { MiddleImageStyle, SideImageStyle, WhyUSStyle } from "../general/SectionStyles"
+import { SideImageStyle, TopHeaderStyle, WhyUSStyle } from "../general/SectionStyles"
+import ContactFooter from "../general/ContactFooter"
 
 const About = () => {
 	return (
 		<AboutStyle>
 
-			<MiddleImageStyle>
+			<TopHeaderStyle>
 				<div className="inner">
-					<div className="img-part">
-						<img src="/images/full-contact.png" alt="About us" />
-						<div className="img-ovf"></div>
-					</div>
 					<div className="inner-content">
 						<div className="title bigger-c">About us</div>
-						<div className="content">Who we are and what we do</div>
 					</div>
 				</div>
-			</MiddleImageStyle>
+			</TopHeaderStyle>
 
 			<SideImageStyle>
 				<div className="inner">
@@ -117,6 +113,8 @@ const About = () => {
 					</div>
 				</div>
 			</SideImageStyle>
+
+			<ContactFooter />
 
 		</AboutStyle>
 	)

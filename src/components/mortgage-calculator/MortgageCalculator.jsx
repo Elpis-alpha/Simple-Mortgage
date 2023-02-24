@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { FaCalendar, FaDollarSign, FaPercent } from "react-icons/fa"
 import styled from "styled-components"
-import { MiddleImageStyle } from "../general/SectionStyles"
+import ContactFooter from "../general/ContactFooter"
+import { TopHeaderStyle } from "../general/SectionStyles"
 
 const MortgageDeals = () => {
 	const resultRef = useRef(null)
@@ -73,51 +74,53 @@ const MortgageDeals = () => {
 	return (
 		<MortgageDealsStyle>
 
-			<MiddleImageStyle>
+			<TopHeaderStyle>
 				<div className="inner">
-					<div className="img-part">
-						<img src="/images/full-contact.png" alt="Contact Main" />
-						<div className="img-ovf"></div>
-					</div>
 					<div className="inner-content">
 						<div className="title bigger-c">Mortgage Calculator</div>
 					</div>
 				</div>
-			</MiddleImageStyle>
+			</TopHeaderStyle>
 
 			<section className="mor-calc">
-
 				<form onSubmit={e => { e.preventDefault(); setCalculate(true); resultRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' }) }}>
-					<div className="form-pack">
-						<label htmlFor="mm-loan-am-Amount">Amount you wish to borrow</label>
-						<div className="inp-pack">
-							<input required type="number" id="mm-loan-am-Amount" onInput={e => setLoanAmount(parseFloat(e.target.value))} placeholder="500.00" min="0.01" step="any" />
-							<div className="ic"><FaDollarSign /></div>
+					<div className="form-part">
+						<div className="form-pack">
+							<label htmlFor="mm-loan-am-Amount">Amount you wish to borrow</label>
+							<div className="inp-pack">
+								<input required type="number" id="mm-loan-am-Amount" onInput={e => setLoanAmount(parseFloat(e.target.value))} placeholder="500.00" min="0.01" step="any" />
+								<div className="ic"><FaDollarSign /></div>
+							</div>
+						</div>
+						<div className="form-pack">
+							<label htmlFor="mm-loan-am-Down">Down Payment</label>
+							<div className="inp-pack">
+								<input required type="number" id="mm-loan-am-Down" onInput={e => setDownPayment(parseFloat(e.target.value))} placeholder="10.00" min="0.01" step="any" />
+								<div className="ic"><FaDollarSign /></div>
+							</div>
+						</div>
+						<div className="form-pack">
+							<label htmlFor="mm-loan-am-Interest">Interest Rate (APR)</label>
+							<div className="inp-pack">
+								<input required type="number" id="mm-loan-am-Interest" onInput={e => setInterest(parseFloat(e.target.value))} placeholder="2.25" min="0.01" step="any" />
+								<div className="ic"><FaPercent /></div>
+							</div>
+						</div>
+						<div className="form-pack">
+							<label htmlFor="mm-loan-am-Length">Length of mortgage</label>
+							<div className="inp-pack">
+								<input required type="number" id="mm-loan-am-Length" onInput={e => setNumberOfYears(parseInt(e.target.value))} placeholder="5" min="1" step="1" />
+								<div className="ic"><FaCalendar /></div>
+							</div>
+						</div>
+						<div className="form-end">
+							<button>Calculate Monthly Payment</button>
 						</div>
 					</div>
-					<div className="form-pack">
-						<label htmlFor="mm-loan-am-Down">Down Payment</label>
-						<div className="inp-pack">
-							<input required type="number" id="mm-loan-am-Down" onInput={e => setDownPayment(parseFloat(e.target.value))} placeholder="10.00" min="0.01" step="any" />
-							<div className="ic"><FaDollarSign /></div>
+					<div className="immg-part">
+						<div className="inner">
+							<img src="https://cdni.iconscout.com/illustration/premium/thumb/home-loan-emi-payment-4704219-3916183.png?f=avif" alt="Mortgage Calculator" title="Mortgage Calculator" />
 						</div>
-					</div>
-					<div className="form-pack">
-						<label htmlFor="mm-loan-am-Interest">Interest Rate (APR)</label>
-						<div className="inp-pack">
-							<input required type="number" id="mm-loan-am-Interest" onInput={e => setInterest(parseFloat(e.target.value))} placeholder="2.25" min="0.01" step="any" />
-							<div className="ic"><FaPercent /></div>
-						</div>
-					</div>
-					<div className="form-pack">
-						<label htmlFor="mm-loan-am-Length">Length of mortgage</label>
-						<div className="inp-pack">
-							<input required type="number" id="mm-loan-am-Length" onInput={e => setNumberOfYears(parseInt(e.target.value))} placeholder="5" min="1" step="1" />
-							<div className="ic"><FaCalendar /></div>
-						</div>
-					</div>
-					<div className="form-end">
-						<button>Calculate Monthly Payment</button>
 					</div>
 				</form>
 
@@ -125,11 +128,15 @@ const MortgageDeals = () => {
 					<p>{errorText}</p>
 				</div>}
 
-				<div className={"success " + (calcculated ? "show" : "")} ref={resultRef}>
-					You will have to make a monthly payment of <span>${result}</span>
+				<div ref={resultRef}>
+					{calcculated && <div className={"success " + (calcculated ? "show" : "")}>
+						You will have to make a monthly payment of <span>${result}</span>
+					</div>}
 				</div>
 
 			</section>
+
+			<ContactFooter />
 
 		</MortgageDealsStyle>
 	)
@@ -140,9 +147,43 @@ const MortgageDealsStyle = styled.div`
 
 	.mor-calc {
 		color: #072447;
-		padding: 6pc 2pc;
-
+		padding: 2pc 3pc;
+		padding-bottom: 1pc;
+		
+		@media screen and (max-width: 600px) {
+			padding: 2pc 2pc;
+		}
+		
 		form {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+
+			.form-part {
+				width: calc(50% - 2pc);
+				z-index: 30;
+				max-width: 450px;
+				@media screen and (max-width: 800px) {
+					width: 100%;
+					max-width: initial;
+				}
+			}
+			.immg-part {
+				z-index: 15;
+				width: calc(50% - 2pc);
+				@media screen and (max-width: 800px) {
+					display: none;
+				}
+
+				img {
+					left: 0;
+					top: 0;
+					bottom: 5pc;
+					right: 0;
+					width: 100%;
+					object-fit: contain;
+				}
+			}
 			
 			.form-pack {
 				padding-bottom: 1pc;
@@ -161,7 +202,7 @@ const MortgageDealsStyle = styled.div`
 						border-radius: 5px;
 						font-size: 16px;
 						color: #555;
-						background-color: #f5f5f5;
+						background-color: rgba(245, 245, 245, 0.5);
 						box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 						transition: border-color 0.3s ease-in-out;
 						padding-left: 2.6pc;
@@ -193,23 +234,18 @@ const MortgageDealsStyle = styled.div`
 				padding-bottom: .5pc;
 
 				button {
-					padding: 10px 20px;
-					border: none;
-					border-radius: 5px;
-					font-size: 16px;
+					outline: 0 none;
+					border: 0 none;
+					display: inline-flex;
+					text-decoration: none;
 					color: #fff;
-					background-color: #6bb1ff;
-					box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-					cursor: pointer;
-					transition: background-color 0.3s ease-in-out;
-	
+					background-color: #487cff;
+					padding: .6pc 2pc;
+					border-radius: .5pc;
+					transition: background-color .5s;
+					
 					&:hover {
-						background-color: #3e8ee0;
-					}
-	
-					&:focus {
-						outline: none;
-						box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+						background-color: #072447;
 					}
 				}
 			}
@@ -237,6 +273,7 @@ const MortgageDealsStyle = styled.div`
 			text-align: center;
 			opacity: 0;
 			transition: opacity .4s;
+			animation: opacity-in .4s 1;
 
 			&.show {
 				opacity: 1;

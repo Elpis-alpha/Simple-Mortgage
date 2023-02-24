@@ -8,7 +8,7 @@ import { v4 } from "uuid";
 const Footer = () => {
 	return (
 		<FooterStyles>
-			<Marquee>
+			<Marquee style={{ paddingBottom: "1pc" }}>
 				{footerMarque.map(item => <a href={item.href} key={v4()} target="_blank" rel="noopener noreferrer" className="marq-item"><img src={item.src} alt="Marque" /></a>)}
 			</Marquee>
 
@@ -23,7 +23,8 @@ const Footer = () => {
 				<div className="row">
 					<ul>
 						<li><Link to="/">{siteName}</Link></li>
-						<li><Link to="/calculator">Mortgage Calculator</Link></li>
+						<li><Link to="/application">Application</Link></li>
+						<li><Link to="/calculator">Calculator</Link></li>
 						<li><Link to="/contact">Contact Us</Link></li>
 						<li><Link to="/about">About Us</Link></li>
 						<li><Link to="/privacy-policy">Privacy Policy</Link></li>
@@ -44,6 +45,7 @@ width: 100%;
 
 .marq-item {
 	padding: 0 1pc;
+	display: flex;
 	img {
 		/* max-height: 20px; */
 		width: 120px;

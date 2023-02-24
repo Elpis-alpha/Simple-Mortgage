@@ -5,6 +5,11 @@ const GlobalStyle = createGlobalStyle`
 /* Fonts Used */
 
 @font-face{
+  font-family: 'Header';
+  src: url(/fonts/MuseoModerno.ttf);
+}
+
+@font-face{
   font-family: 'Styled';
   src: url(/fonts/Nunito.ttf);
 }
@@ -152,8 +157,8 @@ html{
 
 body{
   min-height: 100vh;
-  font-size: 1pc;
-  line-height: 2pc;
+  font-size: 1.2pc;
+	line-height: 2.5pc;
   font-family: Main;
   background-color: #fff;
   color: #323232;
@@ -164,6 +169,11 @@ body{
   justify-content: flex-start;
   flex-direction: column;
   font-weight: 600;
+
+  @media screen and (max-width: 500px) {
+    font-size: 1pc;
+    line-height: 2pc;    
+  }
 }
 
 body > #root{

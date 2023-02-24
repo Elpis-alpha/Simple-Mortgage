@@ -1,67 +1,79 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
-import { address, email, telephone, adminEmail, contactEmail, otherEmail } from "../../utils"
-import { ContactBlocks, MiddleImageStyle } from "../general/SectionStyles"
+import { address, email, telephone } from "../../utils"
+import { ContactBlocks, TopHeaderStyle } from "../general/SectionStyles"
 
 const Contact = () => {
+	const [errorText, setErrorText] = useState("")
+	const [successText, setSuccessText] = useState("")
+	const [sendingMail, setSendingMail] = useState(false)
+
+	useEffect(() => {
+		let errorTextCancler
+		if (errorText.length > 0) errorTextCancler = setTimeout(() => setErrorText(""), 1500)
+		return () => { clearTimeout(errorTextCancler) }
+	}, [errorText])
+
+	useEffect(() => {
+		let succTextCancler
+		if (successText.length > 0) succTextCancler = setTimeout(() => setSuccessText(""), 1500)
+		return () => { clearTimeout(succTextCancler) }
+	}, [successText])
+
+	const submitHandler = e => {
+		e.preventDefault();
+		const form = e.target
+		if (sendingMail) return setErrorText("Please be patient")
+		if (!window?.emailjs) return setErrorText("Try again later")
+		setSendingMail(true)
+		window.emailjs.sendForm('service_flcxz8i', 'template_vgfmuq5', form)
+			.then((result) => {
+				setSendingMail(false)
+				setSuccessText("Email sent")
+				form.reset()
+			}, (error) => {
+				setSendingMail(false)
+				setErrorText("Email failed to send")
+			}).catch(err => {
+				setErrorText("Email failed to send")
+				setSendingMail(false)
+			}).finally(() => {
+				setSendingMail(false)
+			});
+	}
+
 	return (
 		<ContactStyle>
-
-			<MiddleImageStyle>
+			<TopHeaderStyle>
 				<div className="inner">
-					<div className="img-part">
-						<img src="/images/full-contact.png" alt="Contact Main" />
-						<div className="img-ovf"></div>
-					</div>
 					<div className="inner-content">
 						<div className="title bigger-c">Contact us</div>
 					</div>
 				</div>
-			</MiddleImageStyle>
+			</TopHeaderStyle>
 
 			<ContactBlocks>
 				<div className="inner">
 					<div className="inner-content">
+						<div className="email-part">
+							<form className="text-container" onSubmit={submitHandler}>
+								<div className="title">Send a mail</div>
+								<input required type="text" name="user_name" id='user_name' placeholder="Name" /><br />
+								<input required type="email" name="user_email" id='user_email' placeholder="Email" /><br />
+								<textarea required type="text" name="message" id='message' placeholder="Message"></textarea><br />
+								<button id="submit" type="submit" disabled={sendingMail}>{sendingMail ? "Sending mail..." : "Send"}</button>
+							</form>
+						</div>
 						<div className="listed-parts">
 							<div className="list-item">
 								<div className="tit">Place a call</div>
 								<div className="nom">Our fully trained support team are ready to answer any of your questions.</div>
-								<div className="imp">
-									Monday to Friday: 9am - 5pm <br />
-									Saturday and Sunday: Closed
-								</div>
 								<div className="button"><a title="place a call" href={`tel:${telephone}`}>Call us</a></div>
 							</div>
 							<div className="list-item">
 								<div className="tit">Send a mail</div>
-								<div className="nom">Reach out to us by sending a mail to {email} and we'll get back to you within 48 hours.</div>
-								<div className="imp">
-									Always available
-								</div>
-								<div className="button"><a title="place a call" href={`mailto:${email}`}>Mail us</a></div>
-							</div>
-							<div className="list-item">
-								<div className="tit">Contact our Admin</div>
-								<div className="nom">Contact our administrative team by sending a mail to {adminEmail} and we'll get back to you within 48 hours.</div>
-								<div className="imp">
-									Always available
-								</div>
-								<div className="button"><a title="place a call" href={`mailto:${adminEmail}`}>Mail us</a></div>
-							</div>
-							<div className="list-item">
-								<div className="tit">Contact us</div>
-								<div className="nom">Contact us by sending a mail to {otherEmail} and we'll get back to you within 48 hours.</div>
-								<div className="imp">
-									Always available
-								</div>
-								<div className="button"><a title="place a call" href={`mailto:${otherEmail}`}>Mail us</a></div>
-							</div>
-							<div className="list-item">
-								<div className="tit">Get Support</div>
-								<div className="nom">Contact our support team by sending a mail to {contactEmail} and we'll get back to you within 48 hours.</div>
-								<div className="imp">
-									Always available
-								</div>
-								<div className="button"><a title="place a call" href={`mailto:${contactEmail}`}>Mail us</a></div>
+								<div className="nom">Reach out to us at {email}.</div>
+								<div className="button"><a title="Send a mail" href={`mailto:${email}`}>Mail us</a></div>
 							</div>
 							<div className="list-item">
 								<div className="tit">Come to our office</div>
@@ -69,20 +81,49 @@ const Contact = () => {
 								<div className="imp">
 									{address}
 								</div>
-								<div className="imp">
-									Monday to Friday: 9am - 2pm <br />
-									Saturday and Sunday: Closed
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</ContactBlocks>
+
+			{errorText.length > 0 && <div className="error"><p>{errorText}</p></div>}
+
+			{successText.length > 0 && <div className="success"><p>{successText}</p></div>}
+
 		</ContactStyle>
 	)
 }
 const ContactStyle = styled.div`
 	width: 100%;
 	flex: 1;
+
+	.error {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		padding: 10px 20px;
+		border-radius: 5px;
+		font-size: 16px;
+		color: #fff;
+		background-color: #f44336;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		z-index: 9999;
+		animation: opacity-in .5s 1;
+	}
+
+	.success {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		padding: 10px 20px;
+		border-radius: 5px;
+		font-size: 16px;
+		color: #fff;
+		background-color: #2c8d1d;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		z-index: 9999;
+		animation: opacity-in .5s 1;
+	}
 `
 export default Contact
