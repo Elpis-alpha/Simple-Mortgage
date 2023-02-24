@@ -61,7 +61,7 @@ const HomePage = () => {
               <div className="button"><Link to="/calculator" className='btn-8'>Get Started</Link></div>
             </div>
             <div className="side immg">
-              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-loan-5329704-4465458.png?f=avif" alt="Customized Rates" />
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-analysis-5763808-4818470.png?f=avif" alt="Customized Rates" />
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@ const HomePage = () => {
               <div className="button"><Link to="/about" className='btn-8'>Get Started</Link></div>
             </div>
             <div className="side immg">
-              <img src="https://cdni.iconscout.com/illustration/premium/thumb/mortgage-loan-6440849-5331752.png?f=avif" alt="Customized Rates" />
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/brand-designer-working-for-footwear-brand-7154212-5805814.png?f=avif" alt="Customized Rates" />
             </div>
           </div>
         </div>

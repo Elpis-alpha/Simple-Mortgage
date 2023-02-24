@@ -82,7 +82,7 @@ const ApplicationStyle = styled.div`
 					border-radius: .5pc;
 					transition: background-color .5s;
 					margin: 0 .2pc;
-					
+
 					&:hover {
 						background-color: #072447;
 					}

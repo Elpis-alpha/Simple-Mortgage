@@ -98,9 +98,7 @@ const NavBarStyle = styled.nav`
 			transition: color .5s, background-color .5s;
 			&:hover{color: #4c7bff}
 
-			@media screen and (max-width: 1000px) {font-size: 1.5pc}
-			@media screen and (max-width: 950px) {font-size: 1.2pc}
-			@media screen and (max-width: 900px) {font-size: 1.8pc}
+			@media screen and (max-width: 1000px) {font-size: 2pc}
 			@media screen and (max-width: 600px) {font-size: 1.5pc}
 			@media screen and (max-width: 470px) {font-size: 1.2pc; line-height: 2pc}
 		}
@@ -123,8 +121,8 @@ const NavBarStyle = styled.nav`
 				justify-content: center;
 				transition: color .5s, background-color .5s;
 				padding: .5pc 1pc;
-				font-size: .9pc;
-				line-height: .9pc;
+				font-size: 1.3pc;
+				line-height: 2pc;
 				color: black;
 				cursor: pointer;
 				&.only-mobile {
@@ -171,7 +169,7 @@ const NavBarStyle = styled.nav`
 			display: none;
 		}
 	}
-	@media screen and (max-width: 900px) {
+	@media screen and (max-width: 1150px) {
 		.ham-holder{
 			display: flex;
 		}    
@@ -269,7 +267,7 @@ const NavBarStyle = styled.nav`
 			}
 		}
 		
-		@media screen and (max-width: 900px) {
+		@media screen and (max-width: 1150px) {
 			.children ul li a {
 				color: #072447;
 				&:hover{

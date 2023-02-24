@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
-import { address, email, telephone } from "../../utils"
+import { email, telephone } from "../../utils"
 import { ContactBlocks, TopHeaderStyle } from "../general/SectionStyles"
 
 const Contact = () => {
@@ -75,13 +75,10 @@ const Contact = () => {
 								<div className="nom">Reach out to us at {email}.</div>
 								<div className="button"><a title="Send a mail" href={`mailto:${email}`}>Mail us</a></div>
 							</div>
-							<div className="list-item">
-								<div className="tit">Come to our office</div>
-								<div className="nom">You can pay us a visit in our office at</div>
-								<div className="imp">
-									{address}
-								</div>
-							</div>
+						</div>
+						<div className="office-box">
+							<div className="title">Our Office</div>
+							<iframe title="Google Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5025084016143!2d-0.014956599999999995!3d51.5039963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487602b07f609f1f%3A0xba1bf1aadad8462!2s30%20Churchill%20Pl%2C%20London%20E14%205EU%2C%20UK!5e0!3m2!1sen!2sng!4v1677275394279!5m2!1sen!2sng" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 						</div>
 					</div>
 				</div>

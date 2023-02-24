@@ -743,6 +743,28 @@ export const ContactBlocks = styled.section`
 					}
 				}
 			}
+
+			.office-box {
+				width: 100%;
+				padding-top: 2pc;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				
+				iframe {
+					width: 100%;
+					height: 400px;
+					border: 0 none;
+				}
+
+				.title {
+					text-align: center;
+					width: 100%;
+					font-size: 1.5pc;
+					padding-bottom: .5pc;
+				}
+			}
 		}
 	}
 `
@@ -823,7 +845,7 @@ export const ApplicationBlocks = styled.section`
 					}
 					
 					.button {
-						padding-top: 1pc;
+						padding-top: 5pc;
 
 						a {
 							display: inline-flex;
