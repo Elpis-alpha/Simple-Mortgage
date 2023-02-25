@@ -13,7 +13,7 @@ const HomePage = () => {
       <MiddleImageStyle>
         <div className="inner">
           <div className="img-part">
-            <img src="/images/home.png" className='home-ssd only-desk' alt="Mortgage" style={{ objectFit: "cover", overflow: "visible" }} />
+            <img src="/images/home.png" className='home-ssd only-desk' alt="Mortgage" style={{ height: "100%", overflow: "visible" }} />
             <img src="/images/home-mobile.png" className='home-ssd only-mobi' alt="Mortgage" />
             {/* <div className="img-ovf"></div> */}
           </div>

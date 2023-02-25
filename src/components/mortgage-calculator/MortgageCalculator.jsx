@@ -119,7 +119,7 @@ const MortgageDeals = () => {
 					</div>
 					<div className="immg-part">
 						<div className="inner">
-							<img src="https://cdni.iconscout.com/illustration/premium/thumb/home-loan-emi-payment-4704219-3916183.png?f=avif" alt="Mortgage Calculator" title="Mortgage Calculator" />
+							<img src="/images/calculator.png" alt="Mortgage Calculator" title="Mortgage Calculator" />
 						</div>
 					</div>
 				</form>

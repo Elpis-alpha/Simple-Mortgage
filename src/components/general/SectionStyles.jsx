@@ -136,6 +136,7 @@ export const MiddleImageStyle = styled.section`
 					line-height: 32px;
 					padding-top: 1.5pc;
 					padding-bottom: 1pc;
+					max-width: 500px;
 					width: 90%;
 
 					@media screen and (max-width: 950px) {
@@ -217,7 +218,7 @@ export const MiddleImageStyle = styled.section`
 					display: initial;
 				}
 
-				@media screen and (max-width: 950px) {
+				@media screen and (max-width: 1000px) {
 					&.only-mobi {
 						display: initial;
 					}
@@ -353,7 +354,7 @@ export const WhyUSStyle = styled.section`
 
 		.inner-content {
 			z-index: 20;
-			padding: 0 3pc;
+			padding: 2pc 3pc;
 			color: #072447;
 			text-align: center;
 
