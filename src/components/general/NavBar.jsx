@@ -10,6 +10,7 @@ import { postApiJson } from "../../controllers/APICtrl"
 import { logoutUser } from "../../api"
 import Cookies from 'universal-cookie'
 import { removeUserData } from "../../store/slice/userSlice"
+import { Oval } from "react-loader-spinner"
 
 const NavBar = ({ light }) => {
 	const cookie = new Cookies()
@@ -38,7 +39,7 @@ const NavBar = ({ light }) => {
 
 		else {
 
-			toast.success("Logged out successfully")		
+			toast.success("Logged out successfully")
 
 			cookie.remove(tokenCookieName, { path: '/' })
 
@@ -95,6 +96,8 @@ const NavBar = ({ light }) => {
 					{(available && tested) && <li onClick={logoutThisUser}><span className="like-a">
 						<FaSignOutAlt /> Log out
 					</span></li>}
+
+					{(!tested) && <li className="no-load"><Oval width="1.5pc" height="1.5pc" color="#fff" secondaryColor="aaa" /></li>}
 
 				</ul>
 
@@ -314,6 +317,10 @@ const NavBarStyle = styled.nav`
 				color: #072447;
 			}
 		}
+	}
+
+	.children ul li.no-load {
+		padding: 0;
 	}
 `
 export default NavBar
