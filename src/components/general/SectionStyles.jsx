@@ -246,7 +246,7 @@ export const TopHeaderStyle = styled.section`
 			padding: 1.5pc 3pc;
 			color: #fff;
 			padding-top: 0;
-			
+
 			@media screen and (max-width: 600px) {
 				padding: 2pc 2pc;
 				padding-top: 1pc;

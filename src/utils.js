@@ -1,5 +1,7 @@
 // Site Vars
 export const siteName = "MASTER YOUR MORTGAGE"
+export const backendLocation = process.env.REACT_APP_BACK_END
+export const tokenCookieName = "master-your-mortgage-user-token"
 
 // Social Links
 export const twitter = "https://twitter.com/"
