@@ -687,7 +687,7 @@ export const ContactBlocks = styled.section`
 						border-radius: 30px;
 					}
 					.tit {
-						font-size: 1.2pc;
+						font-size: 1.5pc;
 						padding-bottom: .6pc;
 						font-weight: bold;
 					}
@@ -760,10 +760,12 @@ export const ContactBlocks = styled.section`
 				}
 
 				.title {
+					font-weight: 700;
 					text-align: center;
 					width: 100%;
-					font-size: 1.5pc;
+					font-size: 1.8pc;
 					padding-bottom: .5pc;
+					line-height: 2.5pc;
 				}
 			}
 		}
@@ -812,7 +814,7 @@ export const ApplicationBlocks = styled.section`
 						border-radius: 30px;
 					}
 					.tit {
-						font-size: 1.2pc;
+						font-size: 1.5pc;
 						padding-bottom: .6pc;
 						font-weight: bold;
 					}
