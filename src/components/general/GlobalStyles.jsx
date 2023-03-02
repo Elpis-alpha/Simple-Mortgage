@@ -168,7 +168,7 @@ body{
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  font-weight: 600;
+  font-weight: 300;
 
   @media screen and (max-width: 500px) {
     font-size: 1pc;

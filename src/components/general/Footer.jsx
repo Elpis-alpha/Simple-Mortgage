@@ -4,8 +4,10 @@ import styled from "styled-components"
 import Marquee from "react-fast-marquee";
 import { address, email, footerMarque, linkedin, siteName, telephone, twitter } from "../../utils"
 import { v4 } from "uuid";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+	const { available, tested } = useSelector(store => store.user)
 	return (
 		<FooterStyles>
 			<Marquee style={{ paddingBottom: "1pc" }}>
@@ -23,13 +25,20 @@ const Footer = () => {
 				<div className="row">
 					<ul>
 						<li><Link to="/">{siteName}</Link></li>
-						<li><Link to="/application">Application</Link></li>
 						<li><Link to="/calculator">Calculator</Link></li>
 						<li><Link to="/contact">Contact Us</Link></li>
 						<li><Link to="/about">About Us</Link></li>
 						<li><Link to="/privacy-policy">Privacy Policy</Link></li>
 					</ul>
 				</div>
+
+				{(tested && available) && <div className="row">
+					<ul>
+						<li><Link to="/application">Application</Link></li>
+						<li><Link to="/application/forms">Forms</Link></li>
+						<li><Link to="/application/agreement">Agreements</Link></li>
+					</ul>
+				</div>}
 
 				<div className="row">{address}</div>
 

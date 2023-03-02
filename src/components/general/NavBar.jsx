@@ -115,6 +115,7 @@ const NavBarStyle = styled.nav`
 	background-color: #fff;
 	transition: background-color .5s;
 	padding: 0 1pc;
+	font-weight: 600;
 	&.hide-nav{
 		/* display: none; */
 		height: 0;
