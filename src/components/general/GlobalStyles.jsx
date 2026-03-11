@@ -183,7 +183,7 @@ body > #root{
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  max-width: 1700px;
+  max-width: 1920px;
   margin: auto;
 }
 
