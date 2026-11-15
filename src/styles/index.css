@@ -1,0 +1,751 @@
+@import '@fontsource-variable/fraunces/opsz.css';
+@import '@fontsource-variable/fraunces/opsz-italic.css';
+@import '@fontsource-variable/geist/wght.css';
+@import '@fontsource-variable/geist-mono/wght.css';
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ------------------------------------------------------------------ *
+ * Tokens
+ * Light mode is a drawing on vellum. Dark mode is the blueprint of it.
+ * Components only ever read these variables, so both themes stay in
+ * step without per-component overrides.
+ * ------------------------------------------------------------------ */
+:root,
+[data-theme='light'] {
+  --paper: #f4f1ea;
+  --paper-raised: #fbf9f4;
+  --paper-sunken: #ebe7dd;
+  --ink: #0d1a3a;
+  --ink-2: #3a4664;
+  --ink-3: #68728d;
+  --line: rgb(13 26 58 / 0.13);
+  --line-strong: rgb(13 26 58 / 0.32);
+  --grid: rgb(33 72 230 / 0.04);
+  --grid-major: rgb(33 72 230 / 0.07);
+
+  --blue: #2148e6;
+  --blue-ink: #1a3ac4;
+  --blue-wash: rgb(33 72 230 / 0.09);
+  --red: #e8552f;
+  --red-ink: #c23f1d;
+  --red-wash: rgb(232 85 47 / 0.1);
+  --good: #17805a;
+  --good-wash: rgb(23 128 90 / 0.1);
+  --glow: #ffd27a;
+
+  --solid: #0d1a3a;
+  --on-solid: #fbf9f4;
+  --focus: #2148e6;
+  --shadow: 0 1px 0 rgb(13 26 58 / 0.04), 0 18px 40px -24px rgb(13 26 58 / 0.28);
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --paper: #0a1638;
+  --paper-raised: #101f4d;
+  --paper-sunken: #071030;
+  --ink: #eaf0ff;
+  --ink-2: #b6c3e8;
+  --ink-3: #8394c4;
+  --line: rgb(176 200 255 / 0.16);
+  --line-strong: rgb(176 200 255 / 0.38);
+  --grid: rgb(140 170 255 / 0.045);
+  --grid-major: rgb(140 170 255 / 0.085);
+
+  --blue: #6088ff;
+  --blue-ink: #a9c0ff;
+  --blue-wash: rgb(96 136 255 / 0.16);
+  --red: #e5673f;
+  --red-ink: #ff9a78;
+  --red-wash: rgb(229 103 63 / 0.16);
+  --good: #4fd3a0;
+  --good-wash: rgb(79 211 160 / 0.14);
+  --glow: #ffd98a;
+
+  --solid: #eaf0ff;
+  --on-solid: #0a1638;
+  --focus: #a9c0ff;
+  --shadow: 0 1px 0 rgb(0 0 0 / 0.2), 0 24px 48px -24px rgb(0 0 0 / 0.6);
+
+  color-scheme: dark;
+}
+
+/* Lets a section flip to the opposite theme: blueprint on vellum, or vellum on blueprint. */
+[data-theme] {
+  color: var(--ink);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-raised: var(--paper-raised);
+  --color-sunken: var(--paper-sunken);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-blue: var(--blue);
+  --color-blue-ink: var(--blue-ink);
+  --color-blue-wash: var(--blue-wash);
+  --color-red: var(--red);
+  --color-red-ink: var(--red-ink);
+  --color-red-wash: var(--red-wash);
+  --color-good: var(--good);
+  --color-good-wash: var(--good-wash);
+  --color-solid: var(--solid);
+  --color-on-solid: var(--on-solid);
+
+  --font-serif: 'Fraunces Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --shadow-sheet: var(--shadow);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 6rem;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--paper);
+    /* Drafting grid: 24px minor squares, every fifth line slightly heavier. */
+    background-image:
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:
+      120px 120px,
+      120px 120px,
+      24px 24px,
+      24px 24px;
+    background-position: -1px -1px;
+    transition: background-color 0.4s ease;
+  }
+
+  ::selection {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 380;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /* Numbers that sit in columns or change in place keep a fixed width. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Components
+ * ------------------------------------------------------------------ */
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  /* Mono annotation text: figure captions, labels, sheet numbers. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 360;
+    font-size: clamp(2.75rem, 7.2vw, 6rem);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+  }
+
+  .h-section {
+    font-size: clamp(2rem, 4.2vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .h-card {
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
+    line-height: 1.1;
+  }
+
+  .lede {
+    font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  /* Italic emphasis inside serif headings. */
+  .display em,
+  .h-section em,
+  .h-card em {
+    font-style: italic;
+    font-weight: 340;
+    color: var(--blue);
+  }
+
+  .sheet {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Small corner ticks, like registration marks on a drawing sheet. */
+  .ticks {
+    position: relative;
+  }
+  .ticks::before,
+  .ticks::after {
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    pointer-events: none;
+    border-color: var(--line-strong);
+    border-style: solid;
+  }
+  .ticks::before {
+    top: -1px;
+    left: -1px;
+    border-width: 1px 0 0 1px;
+  }
+  .ticks::after {
+    right: -1px;
+    bottom: -1px;
+    border-width: 0 1px 1px 0;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--line);
+    border: 0;
+  }
+
+  /* ---- Buttons --------------------------------------------------- */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    height: 3rem;
+    padding-inline: 1.375rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.35s var(--ease-out-expo);
+  }
+  .btn:active {
+    transform: scale(0.975);
+  }
+  .btn[disabled],
+  .btn[aria-disabled='true'] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .btn svg {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+    transition: transform 0.35s var(--ease-out-expo);
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+  .btn-solid {
+    background: var(--solid);
+    color: var(--on-solid);
+  }
+  .btn-solid:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .btn-blue {
+    background: var(--blue);
+    color: #fff;
+  }
+  .btn-blue:hover {
+    background: var(--solid);
+    color: var(--on-solid);
+  }
+  .btn-outline {
+    border-color: var(--line-strong);
+    color: var(--ink);
+  }
+  .btn-outline:hover {
+    border-color: var(--ink);
+    background: var(--paper-raised);
+  }
+  .btn-ghost {
+    color: var(--ink);
+    padding-inline: 0.875rem;
+  }
+  .btn-ghost:hover {
+    background: var(--blue-wash);
+  }
+  .btn-sm {
+    height: 2.375rem;
+    padding-inline: 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Text link with an underline that redraws from the left on hover. */
+  .link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 1px;
+    transition: background-size 0.4s var(--ease-out-expo), color 0.2s ease;
+  }
+  .link:hover {
+    color: var(--blue);
+    animation: link-redraw 0.5s var(--ease-out-expo);
+  }
+  @keyframes link-redraw {
+    from {
+      background-size: 0 1px;
+    }
+    to {
+      background-size: 100% 1px;
+    }
+  }
+
+  /* ---- Form fields ----------------------------------------------- */
+  .field-label {
+    display: block;
+    margin-bottom: 0.4375rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--ink-2);
+  }
+
+  .input {
+    width: 100%;
+    height: 3rem;
+    padding-inline: 0.875rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    color: var(--ink);
+    font-size: 1rem;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+  }
+  textarea.input {
+    height: auto;
+    padding-block: 0.75rem;
+    resize: vertical;
+    min-height: 8.5rem;
+  }
+  .input::placeholder {
+    color: var(--ink-3);
+    opacity: 0.75;
+  }
+  .input:hover {
+    border-color: var(--ink-3);
+  }
+  .input:focus,
+  .input:focus-within {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px var(--blue-wash);
+  }
+  .input[aria-invalid='true'] {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px var(--red-wash);
+  }
+
+  /* Input with a unit glued to one side (£, %, yrs). */
+  .affix {
+    display: flex;
+    align-items: center;
+    padding-inline: 0;
+    overflow: hidden;
+  }
+  .affix > input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    background: transparent;
+    padding-inline: 0.75rem;
+    outline: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .affix > span {
+    flex: none;
+    padding-inline: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+  }
+  .affix > span:first-child {
+    padding-right: 0;
+  }
+  .affix > span:last-child {
+    padding-left: 0;
+  }
+
+  /* ---- Range slider ---------------------------------------------- */
+  .range {
+    --fill: 50%;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 1.75rem;
+    background: transparent;
+    cursor: grab;
+    touch-action: pan-y;
+  }
+  .range:active {
+    cursor: grabbing;
+  }
+  .range::-webkit-slider-runnable-track {
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--blue) var(--fill), var(--line-strong) var(--fill));
+  }
+  .range::-moz-range-track {
+    height: 2px;
+    border-radius: 2px;
+    background: var(--line-strong);
+  }
+  .range::-moz-range-progress {
+    height: 2px;
+    border-radius: 2px;
+    background: var(--blue);
+  }
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-top: -9px;
+    border-radius: 50%;
+    background: var(--paper-raised);
+    border: 2px solid var(--blue);
+    box-shadow: 0 2px 6px rgb(13 26 58 / 0.18);
+    transition:
+      transform 0.25s var(--ease-spring),
+      box-shadow 0.2s ease;
+  }
+  .range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--paper-raised);
+    border: 2px solid var(--blue);
+    box-shadow: 0 2px 6px rgb(13 26 58 / 0.18);
+  }
+  .range:hover::-webkit-slider-thumb {
+    transform: scale(1.12);
+  }
+  .range:active::-webkit-slider-thumb {
+    transform: scale(1.22);
+    box-shadow: 0 0 0 7px var(--blue-wash);
+  }
+  .range:focus-visible {
+    outline: none;
+  }
+  .range:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--focus);
+  }
+  .range:focus-visible::-moz-range-thumb {
+    box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--focus);
+  }
+  .range-red::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--red) var(--fill), var(--line-strong) var(--fill));
+  }
+  .range-red::-moz-range-progress {
+    background: var(--red);
+  }
+  .range-red::-webkit-slider-thumb {
+    border-color: var(--red);
+  }
+  .range-red::-moz-range-thumb {
+    border-color: var(--red);
+  }
+
+  /* ---- Scroll reveal --------------------------------------------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.9s var(--ease-out-expo),
+      transform 0.9s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ---- Table ----------------------------------------------------- */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .table thead th {
+    padding: 0.625rem 0.75rem;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border-bottom: 1px solid var(--line-strong);
+    white-space: nowrap;
+  }
+  .table td,
+  .table tbody th {
+    padding: 0.6875rem 0.75rem;
+    text-align: right;
+    border-bottom: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .table tr > :first-child {
+    text-align: left;
+    padding-left: 0;
+  }
+  .table tr > :last-child {
+    padding-right: 0;
+  }
+  .table tbody tr {
+    transition: background-color 0.15s ease;
+  }
+  .table tbody tr:hover {
+    background: var(--blue-wash);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Motion
+ * ------------------------------------------------------------------ */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes smoke {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.6);
+  }
+  25% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(10px, -34px) scale(1.5);
+  }
+}
+@keyframes ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Page changes cross-fade where the browser supports view transitions. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.28s;
+  animation-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Print: the agreement in principle prints as a clean single sheet.
+ * ------------------------------------------------------------------ */
+@media print {
+  /* Always print the vellum palette, whatever theme is on screen. */
+  :root,
+  [data-theme] {
+    --paper: #fff;
+    --paper-raised: #fff;
+    --paper-sunken: #f2f2f2;
+    --ink: #0d1a3a;
+    --ink-2: #3a4664;
+    --ink-3: #68728d;
+    --line: rgb(13 26 58 / 0.18);
+    --line-strong: rgb(13 26 58 / 0.4);
+    --blue: #2148e6;
+    --blue-ink: #1a3ac4;
+    --blue-wash: rgb(33 72 230 / 0.09);
+    --red: #e8552f;
+    --red-ink: #c23f1d;
+    --red-wash: rgb(232 85 47 / 0.1);
+    --good: #17805a;
+    --good-wash: rgb(23 128 90 / 0.1);
+    --solid: #0d1a3a;
+    --on-solid: #fff;
+    --shadow: none;
+    color-scheme: light;
+  }
+  html,
+  body {
+    background: #fff !important;
+    background-image: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  @page {
+    margin: 14mm;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .sheet {
+    box-shadow: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+.print-only {
+  display: none;
+}
+
+/* House elevation: strokes draw themselves in, fills and labels fade after. */
+.house-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.4s var(--ease-out-expo) both;
+}
+.house-fade {
+  animation: fade-in 0.9s ease both;
+}
+
+/* FAQ answers ease open where the browser can animate to auto height. */
+.faq::details-content {
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    block-size 0.5s var(--ease-out-expo),
+    opacity 0.4s ease,
+    content-visibility 0.5s allow-discrete;
+}
+.faq[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
