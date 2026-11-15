@@ -1,0 +1,14 @@
+{
+  "name": "Master Your Mortgage",
+  "short_name": "MYM",
+  "description": "A concept mortgage broker with live calculators and an agreement in principle.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#0d1a3a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

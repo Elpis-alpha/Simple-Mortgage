@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Master Your Mortgage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A concept mortgage broker, built as a design and front-end engineering study. Live at [mortgage.elpis.cc](https://mortgage.elpis.cc).
 
-## Available Scripts
+The whole site is drawn like a set of architectural drawings: vellum paper in the light theme, a blueprint in the dark one. The centrepiece is a house elevation that fills with the share of the home you own as you move through the life of a mortgage.
 
-In the project directory, you can run:
+![Home page, light theme](docs/home.png)
 
-### `npm start`
+![Repayment calculator, dark theme](docs/calculator-dark.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> Master Your Mortgage is fictional. The arithmetic is real; the rates, the decisions and the company are not, and nothing here is financial advice.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## What is in it
 
-### `npm test`
+- **Equity elevation.** Set a price, deposit and term, then drag or play the timeline. The shaded area of the house matches the share owned, and the windows light as the level passes them.
+- **Repayment calculator.** Monthly payment, total interest, overpayments, interest-only, a rate stress table, a balance chart, a capital-versus-interest chart and a year-by-year schedule with CSV export. Inputs are mirrored in the address bar, so any result can be shared as a link.
+- **Borrowing calculator.** A cautious, typical and stretch range from income and outgoings, with the working shown.
+- **Stamp duty calculator.** Band-by-band Stamp Duty Land Tax for England and Northern Ireland (rates in force since 1 April 2025), for first-time buyers, movers and additional properties.
+- **Agreement in principle.** A four-step form with validation and autosave that produces an on-screen decision and a printable certificate.
+- **Dashboard.** Progress tracker, document checklist and the certificate, behind a sign-in.
+- **Two themes**, a responsive layout down to phone width, keyboard-readable charts and reduced-motion support.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## No backend
 
-### `npm run build`
+There is no server and no third-party service. Accounts, applications, drafts and contact messages are stored in the visitor's own browser with `localStorage`. Passwords are kept only as a salted SHA-256 hash, which suits a demo and would not suit a real product. The sign-in page has a one-click demo account with a finished application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React 19, TypeScript, Vite, Tailwind CSS v4 and React Router. Charts and drawings are hand-written SVG; there is no chart or animation library. Fonts (Fraunces, Geist, Geist Mono) are self-hosted.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run it
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run dev
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Other scripts:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Command | What it does |
+| --- | --- |
+| `npm run build` | Type-checks, then builds to `build/` |
+| `npm run preview` | Serves the production build locally |
+| `npm test` | Runs the unit tests for the finance maths |
+| `npm run typecheck` | Type-checks without building |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Layout
 
-## Learn More
+```
+src/
+  lib/          Pure logic: amortisation, stamp duty, affordability,
+                application assessment, local storage, demo auth (with tests)
+  hooks/        Spring animation, theme, URL sync, in-view, element width
+  components/
+    drawing/    House elevation, dimension line, location plan
+    charts/     Balance chart, yearly bars, split bar, tooltip
+    calculator/ The three calculators
+    home/       Hero instrument, rates table, service glyphs
+    layout/     Header, footer, page header, call to action
+    ui/         Buttons, fields, sliders, segmented control, rolling number
+  pages/        One file per route
+  styles/       Design tokens and component styles
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Brand and contact details live in `src/lib/site.ts`. The phone number is in Ofcom's range reserved for drama and the email uses the reserved `.example` domain, so neither reaches a real person.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deploying
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`vercel.json` sets the framework to Vite, the output folder to `build` and a rewrite so that deep links such as `/calculator` load the app.

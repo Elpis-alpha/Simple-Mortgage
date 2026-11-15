@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Master Your Mortgage — own more of your home, sooner</title>
+    <meta
+      name="description"
+      content="A concept mortgage broker. Sketch your repayments, see how much you could borrow, work out stamp duty and get an agreement in principle in minutes."
+    />
+    <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a1638" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Master Your Mortgage" />
+    <meta property="og:description" content="Own more of your home, sooner. Calculators, an agreement in principle and a plan drawn around you." />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // Apply the saved or system theme before first paint to avoid a flash.
+      ;(function () {
+        try {
+          var saved = localStorage.getItem('mym:theme')
+          var dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <noscript>Master Your Mortgage needs JavaScript to run its calculators.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
